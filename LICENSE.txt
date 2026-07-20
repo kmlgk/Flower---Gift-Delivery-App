@@ -1,0 +1,38 @@
+BLOOMORA HTML TEMPLATE — REGULAR LICENSE
+
+Copyright (c) 2026 Bloomora Template
+
+This license grants the buyer a non-exclusive, non-transferable right to use
+this template to create a single end product (website) for either their own
+use or for one client, in either case for no additional fee.
+
+Permitted:
+ - Use this template to build one (1) end product, to be used by yourself or
+   for one client.
+ - Modify, adapt and extend the HTML, CSS and JavaScript source files freely
+   for that end product.
+
+Not permitted:
+ - Resell, redistribute, sublicense or share the template's source files
+   ("as-is" or modified) as a standalone product, template, or theme.
+ - Use the template to create multiple end products without additional
+   licenses.
+ - Claim authorship of the original design and code.
+
+Third-party assets:
+ - Google Fonts ("Fraunces", "Plus Jakarta Sans") — licensed under the SIL
+   Open Font License.
+ - Remix Icon — licensed under the Apache License 2.0.
+ - GSAP, Lenis, AOS, Swiper, SplitType, Typed.js, CountUp.js, GLightbox,
+   Isotope — each distributed under their respective open-source licenses
+   (MIT/Commons Clause where applicable). Review each library's license
+   before commercial redistribution beyond a single end product.
+ - All illustrations in assets/images/ are original vector artwork created
+   for this template and are covered by the same license terms as the
+   template itself.
+
+THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE
+USE OF THE TEMPLATE.

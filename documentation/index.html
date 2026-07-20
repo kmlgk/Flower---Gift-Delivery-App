@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Documentation — Bloomora Template</title>
+<link rel="icon" type="image/svg+xml" href="../assets/images/logo-icon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="bg-white dark:bg-ink-950 text-ink antialiased">
+<div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
+
+  <!-- Side nav -->
+  <aside class="lg:sticky lg:top-10 lg:h-fit">
+    <a href="../index.html" class="flex items-center gap-2.5"><img src="../assets/images/logo-icon.svg" class="h-9 w-9" alt="Bloomora logo" /><span class="font-display text-lg font-semibold">Bloomora</span></a>
+    <nav class="mt-8 space-y-1 text-sm">
+      <a href="#getting-started" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Getting Started</a>
+      <a href="#structure" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Folder Structure</a>
+      <a href="#components" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Shared Components</a>
+      <a href="#theming" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Theming &amp; RTL</a>
+      <a href="#animations" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Animations</a>
+      <a href="#pages" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">Pages Reference</a>
+      <a href="#faq" class="block rounded-lg px-3 py-2 font-medium hover:bg-primary-50 dark:hover:bg-white/5">FAQ</a>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <main class="min-w-0 space-y-14">
+    <section id="getting-started">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Documentation</span>
+      <h1 class="font-display mt-2 text-3xl font-semibold">Bloomora Template Guide</h1>
+      <p class="mt-3 text-ink-soft">Bloomora is a pure HTML5 + Tailwind CSS (CDN) + Vanilla JS template — no Node.js, npm, or build step. Unzip the package and double-click any <code class="rounded bg-primary-50 px-1.5 py-0.5 dark:bg-primary-950">.html</code> file to preview it in your browser.</p>
+      <div class="mt-5 rounded-2xl border border-subtle p-5 text-sm">
+        <p class="font-semibold">Quick start</p>
+        <ol class="mt-2 list-decimal space-y-1 pl-5 text-ink-soft">
+          <li>Unzip the template folder.</li>
+          <li>Open <code>index.html</code> directly in Chrome, Firefox, Edge or Safari.</li>
+          <li>Edit colors/fonts in <code>assets/js/tailwind-config.js</code>.</li>
+          <li>Edit navigation in <code>assets/js/components.js</code>.</li>
+          <li>Deploy the folder as-is to any static host (Netlify, Vercel, cPanel, S3...).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="structure">
+      <h2 class="font-display text-2xl font-semibold">Folder Structure</h2>
+      <pre class="mt-4 overflow-x-auto rounded-2xl border border-subtle p-5 text-xs leading-relaxed">template/
+├── index.html, home-2.html, about.html, services.html, service-details.html,
+│   blog.html, blog-details.html, login.html, register.html, dashboard.html,
+│   pricing.html, contact.html, 404.html, coming-soon.html
+├── assets/
+│   ├── css/style.css          Theme tokens, dark/light, RTL, utilities
+│   ├── js/tailwind-config.js  Tailwind colors/fonts/animation config
+│   ├── js/components.js       Header, mega menu, mobile menu, footer, CTA, breadcrumb
+│   ├── js/main.js             Preloader, scroll, GSAP/AOS/Swiper/Typed/CountUp
+│   ├── js/dashboard.js        Dashboard tabs + live tracking simulation
+│   └── images/                 Hand-built SVG illustrations
+├── documentation/index.html   (this file)
+├── README.md
+└── LICENSE.txt</pre>
+    </section>
+
+    <section id="components">
+      <h2 class="font-display text-2xl font-semibold">Shared Components</h2>
+      <p class="mt-3 text-ink-soft">Every page includes two empty containers, populated at runtime by <code>components.js</code>:</p>
+      <pre class="mt-4 overflow-x-auto rounded-2xl border border-subtle p-5 text-xs">&lt;div id="site-header"&gt;&lt;/div&gt;
+...page content...
+&lt;div id="site-footer"&gt;&lt;/div&gt;</pre>
+      <p class="mt-3 text-ink-soft">Add a CTA banner or breadcrumb hero anywhere with:</p>
+      <pre class="mt-4 overflow-x-auto rounded-2xl border border-subtle p-5 text-xs">&lt;div data-breadcrumb data-title="Page Title" data-parent="Home" data-parent-href="index.html"&gt;&lt;/div&gt;
+&lt;div data-cta data-title="..." data-sub="..." data-btn="..." data-href="..."&gt;&lt;/div&gt;</pre>
+      <p class="mt-3 text-ink-soft">Set <code>&lt;body data-page="home"&gt;</code> (or about / services / blog / pages / contact) so the header highlights the correct nav item.</p>
+    </section>
+
+    <section id="theming">
+      <h2 class="font-display text-2xl font-semibold">Theming, Dark Mode &amp; RTL</h2>
+      <p class="mt-3 text-ink-soft">Dark mode and RTL toggles call <code>Bloomora.toggleTheme()</code> and <code>Bloomora.toggleDir()</code> (in <code>main.js</code>), persisted to <code>localStorage</code>. A small inline script in every page's <code>&lt;head&gt;</code> re-applies the saved preference before first paint to avoid flashing.</p>
+      <p class="mt-3 text-ink-soft">Brand colors, font families and custom animation keyframes all live in <code>assets/js/tailwind-config.js</code> — edit the <code>primary</code>/<code>secondary</code>/<code>accent</code> color scales to re-theme the entire template.</p>
+    </section>
+
+    <section id="animations">
+      <h2 class="font-display text-2xl font-semibold">Animations</h2>
+      <p class="mt-3 text-ink-soft">All animation libraries are loaded via CDN and initialized defensively in <code>main.js</code> (each block checks the library exists first), so any page only needs to include the <code>&lt;script&gt;</code> tags for the libraries it actually uses:</p>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-ink-soft">
+        <li><strong>GSAP + ScrollTrigger</strong> — blob float loops, parallax (<code>data-parallax</code>), text reveal (<code>data-split-text</code> + SplitType)</li>
+        <li><strong>Lenis</strong> — global smooth scroll</li>
+        <li><strong>AOS</strong> — scroll reveal (<code>data-aos</code>)</li>
+        <li><strong>Swiper</strong> — carousels (<code>data-swiper='{"...": "..."}'</code>)</li>
+        <li><strong>Typed.js</strong> — rotating hero text (<code>data-typed='["a","b"]'</code>)</li>
+        <li><strong>CountUp.js</strong> — animated stats (<code>data-countup="250"</code>)</li>
+        <li><strong>GLightbox</strong> — image lightbox (class <code>glightbox</code>)</li>
+        <li><strong>Isotope</strong> — filterable grids (<code>data-isotope-grid</code>)</li>
+      </ul>
+    </section>
+
+    <section id="pages">
+      <h2 class="font-display text-2xl font-semibold">Pages Reference</h2>
+      <div class="mt-4 grid gap-2 sm:grid-cols-2 text-sm">
+        <a href="../index.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Home 1 — index.html</a>
+        <a href="../home-2.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Home 2 — home-2.html</a>
+        <a href="../about.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">About — about.html</a>
+        <a href="../services.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Services — services.html</a>
+        <a href="../service-details.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Service Details</a>
+        <a href="../blog.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Blog — blog.html</a>
+        <a href="../blog-details.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Blog Details</a>
+        <a href="../login.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Login</a>
+        <a href="../register.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Register</a>
+        <a href="../dashboard.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Customer Dashboard</a>
+        <a href="../pricing.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Pricing</a>
+        <a href="../contact.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Contact</a>
+        <a href="../404.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">404 Error</a>
+        <a href="../coming-soon.html" class="rounded-lg border border-subtle px-3 py-2 hover:border-primary-400">Coming Soon</a>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 class="font-display text-2xl font-semibold">FAQ</h2>
+      <div class="mt-4 space-y-4 text-sm">
+        <div><p class="font-semibold">Do I need Node.js or npm?</p><p class="text-ink-soft">No — everything runs from static files. Tailwind compiles in the browser via its CDN build.</p></div>
+        <div><p class="font-semibold">Can I use this with a backend?</p><p class="text-ink-soft">Yes — forms use standard HTML inputs; wire the <code>onsubmit</code> handlers to your API or a form service of your choice.</p></div>
+        <div><p class="font-semibold">Where do I change the logo?</p><p class="text-ink-soft">Replace <code>assets/images/logo-icon.svg</code> and the "Bloomora" text inside the <code>headerHTML()</code> function in <code>components.js</code>.</p></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

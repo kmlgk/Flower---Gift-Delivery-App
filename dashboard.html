@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Dashboard — Bloomora</title>
+<meta name="description" content="Track your live delivery, view order history and reorder favorite bouquets from your Bloomora customer dashboard." />
+<link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg" />
+<script>(function(){var t=localStorage.getItem('bloomora-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');var d=localStorage.getItem('bloomora-dir');if(d)document.documentElement.setAttribute('dir',d);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="pages" class="bg-primary-50/40 dark:bg-ink-950 text-ink antialiased selection:bg-primary-500">
+<div id="preloader"><div class="preloader-petal"></div></div>
+<div id="page-transition"></div>
+
+<div class="flex min-h-screen">
+  <!-- Sidebar overlay (mobile) -->
+  <div id="dash-sidebar-overlay" class="fixed inset-0 z-40 hidden bg-ink-950/50 lg:hidden"></div>
+
+  <!-- Sidebar -->
+  <aside id="dash-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full surface border-r border-subtle transition-transform duration-300 lg:static lg:translate-x-0">
+    <div class="flex items-center justify-between px-6 py-5">
+      <a href="index.html" class="flex items-center gap-2.5"><img src="assets/images/logo-icon.svg" class="h-9 w-9" alt="Bloomora logo" /><span class="font-display text-xl font-semibold">Bloomora</span></a>
+      <button id="dash-sidebar-close" aria-label="Close sidebar" class="grid h-8 w-8 place-items-center rounded-full border border-subtle lg:hidden"><i class="ri-close-line"></i></button>
+    </div>
+    <div class="flex items-center gap-3 px-6 py-4">
+      <span class="grid h-12 w-12 place-items-center rounded-full bg-petal-gradient font-display text-lg text-white">P</span>
+      <div><p class="text-sm font-semibold">Priya Menon</p><p class="text-xs text-ink-soft">priya.menon@email.com</p></div>
+    </div>
+    <nav class="mt-2 space-y-1 px-4">
+      <a href="#" data-tab-link="overview" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium bg-primary-600 text-white shadow-glow"><i class="ri-dashboard-3-line text-lg"></i> Overview</a>
+      <a href="#" data-tab-link="tracking" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-radar-line text-lg"></i> Live Tracking</a>
+      <a href="#" data-tab-link="history" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-history-line text-lg"></i> Order History</a>
+      <a href="#" data-tab-link="favorites" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-heart-3-line text-lg"></i> Favorites</a>
+      <a href="#" data-tab-link="addresses" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-map-pin-2-line text-lg"></i> Addresses</a>
+      <a href="#" data-tab-link="settings" class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-settings-4-line text-lg"></i> Settings</a>
+    </nav>
+    <div class="mt-6 px-4">
+      <div class="rounded-2xl bg-leaf-gradient p-5 text-white">
+        <i class="ri-vip-crown-2-line text-2xl"></i>
+        <p class="mt-2 text-sm font-semibold">320 reward points</p>
+        <p class="text-xs text-white/80">80 more for a free bouquet</p>
+      </div>
+      <a href="login.html" class="mt-4 flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-primary-600 hover:bg-primary-50 dark:hover:bg-white/5"><i class="ri-logout-box-r-line text-lg"></i> Log out</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex min-w-0 flex-1 flex-col">
+    <!-- Topbar -->
+    <header class="glass-header sticky top-0 z-30 flex items-center justify-between gap-4 px-4 py-4 sm:px-6">
+      <div class="flex items-center gap-3">
+        <button id="dash-sidebar-open" aria-label="Open sidebar" class="grid h-10 w-10 place-items-center rounded-full border border-subtle lg:hidden"><i class="ri-menu-3-line text-lg"></i></button>
+        <select id="dash-mobile-select" class="input-field rounded-full px-4 py-2 text-sm lg:hidden">
+          <option value="overview">Overview</option><option value="tracking">Live Tracking</option><option value="history">Order History</option><option value="favorites">Favorites</option><option value="addresses">Addresses</option><option value="settings">Settings</option>
+        </select>
+        <h1 class="hidden font-display text-xl font-semibold lg:block">Welcome back, Priya 🌸</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="relative hidden sm:block"><i class="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input type="text" placeholder="Search orders" class="input-field w-56 rounded-full py-2.5 pl-11 pr-4 text-sm" /></div>
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="magnetic grid h-10 w-10 place-items-center rounded-full border border-subtle hover:border-primary-400"><i class="ri-sun-line text-lg dark:hidden"></i><i class="ri-moon-line text-lg hidden dark:inline"></i></button>
+        <button aria-label="Notifications" class="magnetic relative grid h-10 w-10 place-items-center rounded-full border border-subtle hover:border-primary-400"><i class="ri-notification-3-line text-lg"></i><span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-primary-600"></span></button>
+        <a href="services.html" class="magnetic hidden items-center gap-1.5 rounded-full bg-petal-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-glow sm:inline-flex"><i class="ri-add-line"></i> New Order</a>
+      </div>
+    </header>
+
+    <div class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+
+      <!-- OVERVIEW -->
+      <section data-tab-panel="overview">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div data-tilt class="tilt-card rounded-3xl border border-subtle surface p-6"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-primary-50 text-primary-600 dark:bg-primary-950"><i class="ri-shopping-bag-3-line"></i></span><p class="mt-4 font-display text-2xl font-semibold"><span data-countup="2">0</span></p><p class="text-xs text-ink-soft">Active orders</p></div>
+          <div data-tilt class="tilt-card rounded-3xl border border-subtle surface p-6"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-secondary-50 text-secondary-600 dark:bg-secondary-950"><i class="ri-checkbox-circle-line"></i></span><p class="mt-4 font-display text-2xl font-semibold"><span data-countup="27">0</span></p><p class="text-xs text-ink-soft">Orders delivered</p></div>
+          <div data-tilt class="tilt-card rounded-3xl border border-subtle surface p-6"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-accent-50 text-accent-600 dark:bg-accent-950"><i class="ri-heart-3-line"></i></span><p class="mt-4 font-display text-2xl font-semibold"><span data-countup="6">0</span></p><p class="text-xs text-ink-soft">Saved bundles</p></div>
+          <div data-tilt class="tilt-card rounded-3xl border border-subtle surface p-6"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-ink-900 text-white"><i class="ri-vip-crown-2-line"></i></span><p class="mt-4 font-display text-2xl font-semibold"><span data-countup="320">0</span></p><p class="text-xs text-ink-soft">Reward points</p></div>
+        </div>
+
+        <div class="mt-6 grid gap-6 lg:grid-cols-3">
+          <div class="lg:col-span-2 rounded-3xl border border-subtle surface p-6">
+            <div class="flex items-center justify-between"><h2 class="font-display text-lg font-semibold">Current order — live</h2><a href="#" data-tab-link="tracking" class="text-xs font-semibold text-primary-600">View map →</a></div>
+            <div class="mt-4 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <div class="h-24 w-24 shrink-0 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=200&q=72&auto=format&fit=crop" alt="Ruby Rose Bouquet" loading="lazy" class="h-full w-full object-cover" /></div>
+              <div class="flex-1">
+                <p class="font-semibold">Ruby Rose Bouquet + Choco Box</p>
+                <p class="text-xs text-ink-soft">Order #BLM-10432 · To: Mom ❤️</p>
+                <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-primary-100 dark:bg-white/10"><div class="h-full rounded-full bg-petal-gradient" style="width:70%"></div></div>
+                <p class="mt-1.5 text-xs text-ink-soft">Out for delivery · Arriving in ~12 min</p>
+              </div>
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary-500 text-white pulse-dot"><i class="ri-e-bike-2-line"></i></span>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-subtle surface p-6">
+            <h2 class="font-display text-lg font-semibold">Quick actions</h2>
+            <div class="mt-4 space-y-2.5">
+              <a href="services.html" class="flex items-center gap-3 rounded-xl border border-subtle px-4 py-3 text-sm font-medium hover:border-primary-400"><i class="ri-flower-line text-primary-600"></i> Order new bouquet</a>
+              <button data-reorder="Ruby Rose Bouquet" class="flex w-full items-center gap-3 rounded-xl border border-subtle px-4 py-3 text-left text-sm font-medium hover:border-primary-400"><i class="ri-refresh-line text-secondary-600"></i> Reorder last bundle</button>
+              <a href="pricing.html" class="flex items-center gap-3 rounded-xl border border-subtle px-4 py-3 text-sm font-medium hover:border-primary-400"><i class="ri-vip-crown-2-line text-accent-600"></i> Upgrade subscription</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-3xl border border-subtle surface p-6">
+          <div class="flex items-center justify-between"><h2 class="font-display text-lg font-semibold">Recent orders</h2><a href="#" data-tab-link="history" class="text-xs font-semibold text-primary-600">View all →</a></div>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full min-w-[560px] text-left text-sm">
+              <thead class="text-xs uppercase tracking-wide text-ink-soft"><tr><th class="pb-3">Order</th><th class="pb-3">Item</th><th class="pb-3">Date</th><th class="pb-3">Status</th><th class="pb-3 text-right">Action</th></tr></thead>
+              <tbody class="divide-y divide-subtle">
+                <tr><td class="py-3 font-medium">#BLM-10432</td><td class="py-3">Ruby Rose Bouquet</td><td class="py-3 text-ink-soft">19 Jul 2026</td><td class="py-3"><span class="rounded-full bg-accent-100 px-3 py-1 text-xs font-semibold text-accent-700 dark:bg-accent-950 dark:text-accent-300">Out for delivery</span></td><td class="py-3 text-right"><button data-reorder="Ruby Rose Bouquet" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-10298</td><td class="py-3">Emerald Gift Hamper</td><td class="py-3 text-ink-soft">02 Jul 2026</td><td class="py-3"><span class="rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">Delivered</span></td><td class="py-3 text-right"><button data-reorder="Emerald Gift Hamper" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-10177</td><td class="py-3">Sunshine Bunch</td><td class="py-3 text-ink-soft">18 Jun 2026</td><td class="py-3"><span class="rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">Delivered</span></td><td class="py-3 text-right"><button data-reorder="Sunshine Bunch" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIVE TRACKING -->
+      <section data-tab-panel="tracking" class="hidden">
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="lg:col-span-2 rounded-3xl border border-subtle surface p-4">
+            <div class="relative overflow-hidden rounded-2xl bg-ink-950">
+              <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="h-72 w-full object-cover text-white/50 sm:h-96" />
+              <div class="glass-card absolute left-6 top-6 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white"><span class="h-2 w-2 rounded-full bg-secondary-400 pulse-dot"></span> Rider en route</div>
+              <div class="absolute bottom-8 right-8 grid h-14 w-14 place-items-center rounded-2xl bg-white shadow-glow"><img src="assets/images/rider-scooter.svg" alt="Delivery rider" class="h-9 w-9 object-contain" /></div>
+              <div class="glass-card absolute bottom-6 left-6 rounded-2xl bg-white/10 px-4 py-3 text-white"><p class="text-xs text-white/60">Arriving in</p><p class="font-display text-xl font-semibold"><span id="live-eta-minutes">12</span> min</p></div>
+            </div>
+            <div class="mt-6 px-2">
+              <div class="flex items-center justify-between text-xs text-ink-soft"><span>Order confirmed</span><span id="live-progress-pct">70%</span><span>Delivered</span></div>
+              <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-primary-100 dark:bg-white/10"><div id="live-progress-bar" class="h-full rounded-full bg-petal-gradient transition-all duration-700" style="width:70%"></div></div>
+              <div class="mt-6 grid grid-cols-4 gap-2 text-center text-xs">
+                <div><span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-secondary-500 text-white"><i class="ri-check-line"></i></span><p class="mt-1.5 font-medium">Placed</p></div>
+                <div><span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-secondary-500 text-white"><i class="ri-check-line"></i></span><p class="mt-1.5 font-medium">Confirmed</p></div>
+                <div><span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-primary-600 text-white pulse-dot"><i class="ri-e-bike-2-line"></i></span><p class="mt-1.5 font-medium">Out for delivery</p></div>
+                <div><span class="mx-auto grid h-9 w-9 place-items-center rounded-full border-2 border-dashed border-subtle text-ink-soft"><i class="ri-flag-2-line"></i></span><p class="mt-1.5 text-ink-soft">Delivered</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="rounded-3xl border border-subtle surface p-6">
+              <h2 class="font-display text-lg font-semibold">Rider details</h2>
+              <div class="mt-4 flex items-center gap-3"><span class="grid h-12 w-12 place-items-center rounded-full bg-secondary-500 font-display text-white">A</span><div><p class="text-sm font-semibold">Arun Kumar</p><p class="text-xs text-ink-soft">★ 4.9 · 1,204 deliveries</p></div></div>
+              <div class="mt-4 grid grid-cols-2 gap-2"><a href="tel:+919876543210" class="flex items-center justify-center gap-2 rounded-xl border border-subtle py-2.5 text-sm font-medium hover:border-primary-400"><i class="ri-phone-line"></i> Call</a><button class="flex items-center justify-center gap-2 rounded-xl border border-subtle py-2.5 text-sm font-medium hover:border-primary-400"><i class="ri-chat-3-line"></i> Chat</button></div>
+            </div>
+            <div class="rounded-3xl border border-subtle surface p-6">
+              <h2 class="font-display text-lg font-semibold">Order summary</h2>
+              <ul class="mt-4 space-y-2 text-sm text-ink-soft">
+                <li class="flex justify-between"><span>Ruby Rose Bouquet</span><span>₹1,299</span></li>
+                <li class="flex justify-between"><span>Chocolate box add-on</span><span>₹399</span></li>
+                <li class="flex justify-between border-t border-subtle pt-2 font-semibold text-ink"><span>Total</span><span>₹1,698</span></li>
+              </ul>
+              <p class="mt-4 text-xs text-ink-soft">Delivering to: 21 Rosewood Lane, Bengaluru</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORDER HISTORY -->
+      <section data-tab-panel="history" class="hidden">
+        <div class="rounded-3xl border border-subtle surface p-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <h2 class="font-display text-lg font-semibold">Order history</h2>
+            <div class="relative"><i class="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input type="text" placeholder="Search order #" class="input-field w-56 rounded-full py-2.5 pl-11 pr-4 text-sm" /></div>
+          </div>
+          <div class="mt-5 overflow-x-auto">
+            <table class="w-full min-w-[640px] text-left text-sm">
+              <thead class="text-xs uppercase tracking-wide text-ink-soft"><tr><th class="pb-3">Order</th><th class="pb-3">Item</th><th class="pb-3">Date</th><th class="pb-3">Amount</th><th class="pb-3">Status</th><th class="pb-3 text-right">Action</th></tr></thead>
+              <tbody class="divide-y divide-subtle">
+                <tr><td class="py-3 font-medium">#BLM-10432</td><td class="py-3">Ruby Rose Bouquet</td><td class="py-3 text-ink-soft">19 Jul 2026</td><td class="py-3">₹1,698</td><td class="py-3"><span class="rounded-full bg-accent-100 px-3 py-1 text-xs font-semibold text-accent-700 dark:bg-accent-950 dark:text-accent-300">Out for delivery</span></td><td class="py-3 text-right"><button data-reorder="Ruby Rose Bouquet" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-10298</td><td class="py-3">Emerald Gift Hamper</td><td class="py-3 text-ink-soft">02 Jul 2026</td><td class="py-3">₹2,199</td><td class="py-3"><span class="rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">Delivered</span></td><td class="py-3 text-right"><button data-reorder="Emerald Gift Hamper" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-10177</td><td class="py-3">Sunshine Bunch</td><td class="py-3 text-ink-soft">18 Jun 2026</td><td class="py-3">₹899</td><td class="py-3"><span class="rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">Delivered</span></td><td class="py-3 text-right"><button data-reorder="Sunshine Bunch" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-09954</td><td class="py-3">Velvet Celebration Cake</td><td class="py-3 text-ink-soft">30 May 2026</td><td class="py-3">₹649</td><td class="py-3"><span class="rounded-full bg-secondary-100 px-3 py-1 text-xs font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">Delivered</span></td><td class="py-3 text-right"><button data-reorder="Velvet Celebration Cake" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+                <tr><td class="py-3 font-medium">#BLM-09810</td><td class="py-3">Midnight Orchid</td><td class="py-3 text-ink-soft">14 May 2026</td><td class="py-3">₹1,799</td><td class="py-3"><span class="rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold text-primary-700 dark:bg-primary-950 dark:text-primary-300">Cancelled</span></td><td class="py-3 text-right"><button data-reorder="Midnight Orchid" class="text-xs font-semibold text-primary-600">Reorder</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAVORITES -->
+      <section data-tab-panel="favorites" class="hidden">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div data-tilt class="tilt-card overflow-hidden rounded-3xl border border-subtle surface">
+            <div class="h-36 overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&q=72&auto=format&fit=crop" alt="Ruby Rose Bouquet" loading="lazy" class="h-full w-full object-cover" /></div>
+            <div class="p-5"><h3 class="font-semibold">Ruby Rose Bouquet</h3><p class="text-xs text-ink-soft">Reordered 6 times</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹1,299</span><button data-reorder="Ruby Rose Bouquet" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div></div>
+          </div>
+          <div data-tilt class="tilt-card overflow-hidden rounded-3xl border border-subtle surface">
+            <div class="h-36 overflow-hidden"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=72&auto=format&fit=crop" alt="Emerald Gift Hamper" loading="lazy" class="h-full w-full object-cover" /></div>
+            <div class="p-5"><h3 class="font-semibold">Emerald Gift Hamper</h3><p class="text-xs text-ink-soft">Reordered 3 times</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹2,199</span><button data-reorder="Emerald Gift Hamper" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div></div>
+          </div>
+          <div data-tilt class="tilt-card overflow-hidden rounded-3xl border border-subtle surface">
+            <div class="h-36 overflow-hidden"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=400&q=72&auto=format&fit=crop" alt="Sunshine Bunch" loading="lazy" class="h-full w-full object-cover" /></div>
+            <div class="p-5"><h3 class="font-semibold">Sunshine Bunch</h3><p class="text-xs text-ink-soft">Reordered 2 times</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹899</span><button data-reorder="Sunshine Bunch" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div></div>
+          </div>
+          <div data-tilt class="tilt-card overflow-hidden rounded-3xl border border-subtle surface">
+            <div class="h-36 overflow-hidden"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=400&q=72&auto=format&fit=crop" alt="Velvet Celebration Cake" loading="lazy" class="h-full w-full object-cover" /></div>
+            <div class="p-5"><h3 class="font-semibold">Velvet Celebration Cake</h3><p class="text-xs text-ink-soft">Reordered 4 times</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹649</span><button data-reorder="Velvet Celebration Cake" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div></div>
+          </div>
+          <div data-tilt class="tilt-card rounded-3xl border border-subtle surface p-5">
+            <div class="flex h-36 items-center justify-center rounded-2xl bg-primary-100/70 dark:bg-primary-900/20"><img src="assets/images/bouquet-orchid.svg" alt="Midnight Orchid" loading="lazy" class="h-24 w-24 object-contain" /></div>
+            <h3 class="mt-4 font-semibold">Midnight Orchid</h3><p class="text-xs text-ink-soft">Reordered 1 time</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹1,799</span><button data-reorder="Midnight Orchid" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div>
+          </div>
+          <div data-tilt class="tilt-card overflow-hidden rounded-3xl border border-subtle surface">
+            <div class="h-36 overflow-hidden"><img src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=400&q=72&auto=format&fit=crop" alt="Succulent Trio" loading="lazy" class="h-full w-full object-cover" /></div>
+            <div class="p-5"><h3 class="font-semibold">Succulent Trio</h3><p class="text-xs text-ink-soft">Reordered 2 times</p>
+            <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹649</span><button data-reorder="Succulent Trio" class="magnetic rounded-full bg-petal-gradient px-4 py-2 text-xs font-semibold text-white">Reorder</button></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADDRESSES -->
+      <section data-tab-panel="addresses" class="hidden">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="rounded-3xl border border-subtle surface p-6">
+            <div class="flex items-start justify-between"><div><span class="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-600 dark:bg-primary-950">Home · Default</span><h3 class="mt-3 font-semibold">Priya Menon</h3><p class="mt-1 text-sm text-ink-soft">21 Rosewood Lane, Indiranagar,<br>Bengaluru, KA 560038</p><p class="mt-1 text-sm text-ink-soft">+91 98450 12345</p></div><button class="text-ink-soft hover:text-primary-600"><i class="ri-pencil-line"></i></button></div>
+          </div>
+          <div class="rounded-3xl border border-subtle surface p-6">
+            <div class="flex items-start justify-between"><div><span class="rounded-full bg-secondary-50 px-3 py-1 text-xs font-semibold text-secondary-600 dark:bg-secondary-950">Office</span><h3 class="mt-3 font-semibold">Priya Menon</h3><p class="mt-1 text-sm text-ink-soft">4th Floor, Petal Towers, MG Road,<br>Bengaluru, KA 560001</p><p class="mt-1 text-sm text-ink-soft">+91 98450 12345</p></div><button class="text-ink-soft hover:text-primary-600"><i class="ri-pencil-line"></i></button></div>
+          </div>
+          <button class="flex items-center justify-center gap-2 rounded-3xl border-2 border-dashed border-subtle p-6 text-sm font-semibold text-ink-soft hover:border-primary-400 hover:text-primary-600"><i class="ri-add-line text-lg"></i> Add new address</button>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section data-tab-panel="settings" class="hidden">
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="lg:col-span-2 rounded-3xl border border-subtle surface p-6">
+            <h2 class="font-display text-lg font-semibold">Profile details</h2>
+            <form class="mt-5 grid gap-4 sm:grid-cols-2" onsubmit="return false">
+              <div><label class="text-sm font-medium">Full name</label><input type="text" value="Priya Menon" class="input-field mt-1.5 w-full rounded-xl px-4 py-2.5 text-sm" /></div>
+              <div><label class="text-sm font-medium">Email</label><input type="email" value="priya.menon@email.com" class="input-field mt-1.5 w-full rounded-xl px-4 py-2.5 text-sm" /></div>
+              <div><label class="text-sm font-medium">Phone</label><input type="tel" value="+91 98450 12345" class="input-field mt-1.5 w-full rounded-xl px-4 py-2.5 text-sm" /></div>
+              <div><label class="text-sm font-medium">Birthday</label><input type="date" class="input-field mt-1.5 w-full rounded-xl px-4 py-2.5 text-sm" /></div>
+              <button class="magnetic mt-2 rounded-full bg-petal-gradient px-6 py-2.5 text-sm font-semibold text-white sm:col-span-2 sm:w-fit">Save changes</button>
+            </form>
+          </div>
+          <div class="rounded-3xl border border-subtle surface p-6">
+            <h2 class="font-display text-lg font-semibold">Notifications</h2>
+            <div class="mt-4 space-y-4 text-sm">
+              <label class="flex items-center justify-between"><span>Order updates</span><input type="checkbox" checked class="accent-primary-600" /></label>
+              <label class="flex items-center justify-between"><span>Gifting reminders</span><input type="checkbox" checked class="accent-primary-600" /></label>
+              <label class="flex items-center justify-between"><span>Promotions &amp; offers</span><input type="checkbox" class="accent-primary-600" /></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div id="site-footer"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

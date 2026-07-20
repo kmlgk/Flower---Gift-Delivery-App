@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coming Soon — Bloomora | Flower &amp; Gift Delivery</title>
+<meta name="description" content="Bloomora is launching soon in your city. Sign up to be notified the moment we go live." />
+<link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg" />
+<script>(function(){var t=localStorage.getItem('bloomora-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');var d=localStorage.getItem('bloomora-dir');if(d)document.documentElement.setAttribute('dir',d);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-ink-950 text-white antialiased selection:bg-primary-500">
+<div id="preloader"><div class="preloader-petal"></div></div>
+
+<main class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-16">
+  <div class="absolute inset-0 bg-dusk-gradient"></div>
+  <img src="assets/images/pattern-petals.svg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full text-white opacity-70" />
+  <div class="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary-600/30 blur-[120px]"></div>
+
+  <div class="relative mx-auto max-w-2xl text-center">
+    <a href="index.html" class="inline-flex items-center gap-2.5"><img src="assets/images/logo-icon.svg" class="h-11 w-11" alt="Bloomora logo" /><span class="font-display text-2xl font-semibold">Bloomora</span></a>
+    <img src="assets/images/hero-bouquet.svg" alt="Bloomora bouquet illustration" class="mx-auto mt-6 h-48 w-48 object-contain animate-float" data-aos="zoom-in" />
+    <h1 class="font-display mt-4 text-3xl font-semibold sm:text-5xl" data-aos="fade-up">We're planting something beautiful</h1>
+    <p class="mx-auto mt-4 max-w-md text-white/65" data-aos="fade-up" data-aos-delay="80">Bloomora is blooming soon in your city — fresh flowers and gifts, tracked live to your door. Be first to know when we launch.</p>
+
+    <div class="mt-10 grid grid-cols-4 gap-3 sm:gap-4" id="countdown" data-aos="fade-up" data-aos-delay="120">
+      <div class="glass-card rounded-2xl p-4"><p class="font-display text-3xl font-semibold sm:text-4xl" id="cd-days">00</p><p class="mt-1 text-xs uppercase tracking-wide text-white/60">Days</p></div>
+      <div class="glass-card rounded-2xl p-4"><p class="font-display text-3xl font-semibold sm:text-4xl" id="cd-hours">00</p><p class="mt-1 text-xs uppercase tracking-wide text-white/60">Hours</p></div>
+      <div class="glass-card rounded-2xl p-4"><p class="font-display text-3xl font-semibold sm:text-4xl" id="cd-mins">00</p><p class="mt-1 text-xs uppercase tracking-wide text-white/60">Minutes</p></div>
+      <div class="glass-card rounded-2xl p-4"><p class="font-display text-3xl font-semibold sm:text-4xl" id="cd-secs">00</p><p class="mt-1 text-xs uppercase tracking-wide text-white/60">Seconds</p></div>
+    </div>
+
+    <form id="notify-form" class="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row" data-aos="fade-up" data-aos-delay="160">
+      <label for="notify-email" class="sr-only">Email address</label>
+      <input id="notify-email" type="email" required placeholder="Enter your email" class="w-full min-w-0 rounded-full border border-white/15 bg-white/5 px-5 py-3.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-primary-400" />
+      <button class="magnetic inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-petal-gradient px-6 py-3.5 text-sm font-semibold shadow-glow hover:brightness-110 transition">Notify Me <i class="ri-notification-3-line"></i></button>
+    </form>
+    <p id="notify-success" class="mt-3 hidden text-sm text-secondary-400"><i class="ri-checkbox-circle-fill"></i> You're on the list — see you at launch!</p>
+
+    <div class="mt-10 flex justify-center gap-3">
+      <a href="#" aria-label="Facebook" class="magnetic grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-primary-600 hover:border-primary-600 transition"><i class="ri-facebook-fill"></i></a>
+      <a href="#" aria-label="Instagram" class="magnetic grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-primary-600 hover:border-primary-600 transition"><i class="ri-instagram-line"></i></a>
+      <a href="#" aria-label="X" class="magnetic grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-primary-600 hover:border-primary-600 transition"><i class="ri-twitter-x-fill"></i></a>
+    </div>
+  </div>
+</main>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.dispatchEvent(new CustomEvent('bloomora:mounted'));
+(function(){
+  var target = new Date(); target.setDate(target.getDate() + 21);
+  function tick(){
+    var diff = Math.max(0, target - new Date());
+    var d = Math.floor(diff/864e5), h = Math.floor(diff%864e5/36e5), m = Math.floor(diff%36e5/6e4), s = Math.floor(diff%6e4/1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+})();
+document.getElementById('notify-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('notify-success').classList.remove('hidden');
+  this.reset();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us — Bloomora | Flower &amp; Gift Delivery</title>
+<meta name="description" content="Get in touch with Bloomora for order support, corporate gifting enquiries or partnership opportunities." />
+<link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg" />
+<script>(function(){var t=localStorage.getItem('bloomora-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');var d=localStorage.getItem('bloomora-dir');if(d)document.documentElement.setAttribute('dir',d);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="contact" class="bg-white dark:bg-ink-950 text-ink antialiased selection:bg-primary-500">
+<div id="preloader"><div class="preloader-petal"></div></div>
+<div id="scroll-progress"></div>
+<div id="page-transition"></div>
+<div id="site-header"></div>
+
+<main id="main-content">
+  <div data-breadcrumb data-title="Contact Us" data-parent="Home" data-parent-href="index.html"></div>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-5 sm:grid-cols-3">
+      <div class="tilt-card rounded-3xl border border-subtle surface p-6 text-center" data-tilt data-aos="fade-up">
+        <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-petal-gradient text-white"><i class="ri-phone-line"></i></span>
+        <h3 class="mt-4 font-semibold">Call us</h3><p class="mt-1 text-sm text-ink-soft">+91 98450 12345</p><p class="text-xs text-ink-soft">9 AM – 9 PM, all days</p>
+      </div>
+      <div class="tilt-card rounded-3xl border border-subtle surface p-6 text-center" data-tilt data-aos="fade-up" data-aos-delay="80">
+        <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-secondary-500 text-white"><i class="ri-mail-line"></i></span>
+        <h3 class="mt-4 font-semibold">Email us</h3><p class="mt-1 text-sm text-ink-soft">hello@bloomora.example</p><p class="text-xs text-ink-soft">We reply within 2 hours</p>
+      </div>
+      <div class="tilt-card rounded-3xl border border-subtle surface p-6 text-center" data-tilt data-aos="fade-up" data-aos-delay="160">
+        <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-accent-500 text-white"><i class="ri-map-pin-2-line"></i></span>
+        <h3 class="mt-4 font-semibold">Visit studio</h3><p class="mt-1 text-sm text-ink-soft">21 Rosewood Lane, Bengaluru</p><p class="text-xs text-ink-soft">By appointment only</p>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-5">
+      <div class="lg:col-span-3 rounded-4xl border border-subtle surface p-8" data-aos="fade-right">
+        <h2 class="font-display text-2xl font-semibold">Send us a message</h2>
+        <p class="mt-1 text-sm text-ink-soft">Order support, partnerships, or just say hi.</p>
+        <form id="contact-form" class="mt-6 space-y-4" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div><label for="c-name" class="text-sm font-medium">Full name</label><input id="c-name" required type="text" placeholder="Jane Doe" class="input-field mt-1.5 w-full rounded-xl px-4 py-3 text-sm" /></div>
+            <div><label for="c-email" class="text-sm font-medium">Email</label><input id="c-email" required type="email" placeholder="you@example.com" class="input-field mt-1.5 w-full rounded-xl px-4 py-3 text-sm" /></div>
+          </div>
+          <div><label for="c-subject" class="text-sm font-medium">Subject</label>
+            <select id="c-subject" class="input-field mt-1.5 w-full rounded-xl px-4 py-3 text-sm"><option>Order support</option><option>Corporate gifting</option><option>Partnership</option><option>Something else</option></select>
+          </div>
+          <div><label for="c-message" class="text-sm font-medium">Message</label><textarea id="c-message" required rows="5" placeholder="Tell us how we can help..." class="input-field mt-1.5 w-full rounded-2xl px-4 py-3 text-sm"></textarea></div>
+          <button type="submit" class="magnetic inline-flex items-center gap-2 rounded-full bg-petal-gradient px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:brightness-110 transition">Send Message <i class="ri-send-plane-2-line"></i></button>
+          <p id="contact-success" class="hidden rounded-xl bg-secondary-50 px-4 py-3 text-sm text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300"><i class="ri-checkbox-circle-fill"></i> Thanks! Your message has been noted — we'll reply within 2 hours.</p>
+        </form>
+      </div>
+
+      <div class="lg:col-span-2 space-y-6" data-aos="fade-left">
+        <div data-tilt data-tilt-max="6" class="tilt-card relative overflow-hidden rounded-4xl bg-ink-950">
+          <img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?w=700&q=72&auto=format&fit=crop" alt="Bloomora florist studio" loading="lazy" class="h-64 w-full object-cover opacity-90" />
+          <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full text-white/50" />
+        </div>
+        <div class="rounded-3xl border border-subtle surface p-6">
+          <h3 class="font-display text-lg font-semibold">Studio hours</h3>
+          <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+            <li class="flex justify-between"><span>Mon – Fri</span><span>9:00 AM – 9:00 PM</span></li>
+            <li class="flex justify-between"><span>Saturday</span><span>9:00 AM – 8:00 PM</span></li>
+            <li class="flex justify-between"><span>Sunday</span><span>10:00 AM – 6:00 PM</span></li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-petal-gradient p-6 text-white">
+          <h3 class="font-display text-lg font-semibold">Prefer live tracking?</h3>
+          <p class="mt-2 text-sm text-white/80">Check your order status straight from the dashboard.</p>
+          <a href="dashboard.html" class="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary-700">Open dashboard <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-primary-50/60 py-20 dark:bg-white/[0.03]">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-center text-2xl font-semibold sm:text-3xl" data-aos="fade-up">Frequently asked</h2>
+      <div class="mt-8 space-y-3">
+        <div class="acc-item rounded-2xl border border-subtle surface px-5">
+          <button class="acc-trigger flex w-full items-center justify-between py-4 text-left text-sm font-semibold">How do I change my delivery address after ordering? <i class="ri-add-line acc-chevron"></i></button>
+          <div class="acc-panel"><p class="pb-4 text-sm text-ink-soft">Go to your dashboard's active order and tap "Edit address" up to 2 hours before dispatch.</p></div>
+        </div>
+        <div class="acc-item rounded-2xl border border-subtle surface px-5">
+          <button class="acc-trigger flex w-full items-center justify-between py-4 text-left text-sm font-semibold">What if the recipient isn't available? <i class="ri-add-line acc-chevron"></i></button>
+          <div class="acc-panel"><p class="pb-4 text-sm text-ink-soft">Our rider will call ahead and can reschedule delivery within the same day at no extra cost.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<button id="back-to-top" aria-label="Back to top" class="magnetic fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-petal-gradient text-white shadow-glow opacity-0 pointer-events-none transition"><i class="ri-arrow-up-line"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!this.checkValidity()){ this.reportValidity(); return; }
+  document.getElementById('contact-success').classList.remove('hidden');
+  this.reset();
+});
+</script>
+</body>
+</html>
