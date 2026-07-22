@@ -31,6 +31,10 @@ window.Bloomora = window.Bloomora || {};
       if(img.complete) img.classList.add('is-loaded');
       else img.addEventListener('load', ()=> img.classList.add('is-loaded'));
     });
+    /* Lazy images finishing after ScrollTrigger's initial measurement shift page
+       height, which throws off trigger positions (can strand reveal content at
+       opacity:0). Recompute once everything has settled. */
+    if(window.ScrollTrigger) ScrollTrigger.refresh();
   });
 
   /* ---------- Scroll progress bar ---------- */
@@ -47,13 +51,17 @@ window.Bloomora = window.Bloomora || {};
   let lenis;
   if(window.Lenis){
     lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
     lenis.on('scroll', onScroll);
-    if(window.ScrollTrigger){
-      lenis.on('scroll', ScrollTrigger.update);
+    if(window.gsap){
+      /* Drive Lenis exclusively via gsap.ticker when GSAP is present — running a
+         second native rAF loop alongside it double-updates Lenis and desyncs
+         ScrollTrigger's scroll position, which can leave scroll-reveal content
+         stuck at opacity:0. */
+      if(window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time)=> lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
+    } else {
+      (function raf(time){ lenis.raf(time); requestAnimationFrame(raf); })();
     }
   }
   window.Bloomora.lenis = lenis;
@@ -81,16 +89,6 @@ window.Bloomora = window.Bloomora || {};
       gsap.to(el, { y: i%2? 20:-20, x: i%2? -14:14, duration: 5+i, repeat:-1, yoyo:true, ease:'sine.inOut' });
     });
 
-    /* Scroll-triggered stagger reveal for section headers / bento groups */
-    document.querySelectorAll('[data-reveal-group]').forEach(group=>{
-      const items = group.querySelectorAll('[data-reveal-item]');
-      if(!items.length) return;
-      gsap.to(items, {
-        opacity:1, y:0, duration:.8, ease:'power3.out', stagger:0.12,
-        scrollTrigger:{ trigger: group, start:'top 85%' }
-      });
-    });
-
     /* SVG path draw-on-scroll (connecting lines, signature strokes) */
     if(window.ScrollTrigger){
       document.querySelectorAll('[data-draw-path]').forEach(path=>{
@@ -106,21 +104,6 @@ window.Bloomora = window.Bloomora || {};
       gsap.fromTo(el, { rotateY: -25, opacity:0, transformPerspective: 1000 }, {
         rotateY:0, opacity:1, duration:1, ease:'power3.out',
         scrollTrigger:{ trigger: el, start:'top 85%' }
-      });
-    });
-  }
-
-  /* ---------- Page transition overlay ---------- */
-  const overlay = document.getElementById('page-transition');
-  if(overlay){
-    document.querySelectorAll('a').forEach(a=>{
-      const href = a.getAttribute('href');
-      if(!href || href.startsWith('#') || href.startsWith('http') || a.target === '_blank') return;
-      a.addEventListener('click', function(e){
-        if(e.metaKey||e.ctrlKey) return;
-        e.preventDefault();
-        overlay.classList.add('is-active');
-        setTimeout(()=> window.location.href = href, 480);
       });
     });
   }
@@ -159,6 +142,22 @@ window.Bloomora = window.Bloomora || {};
       }, cfg));
     });
   }
+
+  /* ---------- Testimonial rotator (dependency-free, avoids Swiper fade stacking issues) ---------- */
+  document.querySelectorAll('[data-testimonial-rotator]').forEach(root=>{
+    const slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+    const dots = Array.from(root.querySelectorAll('[data-testimonial-dot]'));
+    if(!slides.length) return;
+    let idx = 0, timer;
+    function show(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s,si)=> s.classList.toggle('hidden', si!==idx));
+      dots.forEach((d,di)=> d.classList.toggle('is-active', di===idx));
+    }
+    function restart(){ clearInterval(timer); timer = setInterval(()=> show(idx+1), 6000); }
+    dots.forEach((d,di)=> d.addEventListener('click', ()=>{ show(di); restart(); }));
+    show(0); restart();
+  });
 
   /* ---------- GLightbox ---------- */
   if(window.GLightbox){ GLightbox({ selector: '.glightbox' }); }
@@ -211,11 +210,12 @@ window.Bloomora = window.Bloomora || {};
       const iso = new Isotope(grid, { itemSelector:'.iso-item', layoutMode:'fitRows' });
       const filterRoot = document.querySelector(grid.dataset.isotopeGrid);
       if(filterRoot){
-        const activeCls = ['is-active','bg-primary-600','text-white','border-primary-600'];
+        const activeCls = ['is-active','border-primary-700','text-primary-700'];
         filterRoot.addEventListener('click', (e)=>{
           const btn = e.target.closest('[data-filter]');
           if(!btn) return;
-          filterRoot.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove(...activeCls));
+          filterRoot.querySelectorAll('[data-filter]').forEach(b=>{ b.classList.remove(...activeCls); b.classList.add('border-transparent','text-ink-soft'); });
+          btn.classList.remove('border-transparent','text-ink-soft');
           btn.classList.add(...activeCls);
           iso.arrange({ filter: btn.dataset.filter });
         });
@@ -231,23 +231,50 @@ window.Bloomora = window.Bloomora || {};
     document.querySelectorAll('.reveal-up').forEach(el=>io.observe(el));
   }
 
-  /* ---------- Reveal-group fallback (progressive enhancement if GSAP/ScrollTrigger absent) ---------- */
-  if(!window.gsap || !window.ScrollTrigger){
+  /* ---------- Stagger reveal for section headers / bento groups ----------
+     Uses IntersectionObserver (not ScrollTrigger) to decide *when* to reveal —
+     this is immune to Lenis/ScrollTrigger scroll-position sync issues, which
+     could otherwise leave content stranded at opacity:0. GSAP is only used
+     for the tween itself, when available. */
+  if(window.IntersectionObserver){
+    const revealIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const items = entry.target.querySelectorAll('[data-reveal-item]');
+        if(window.gsap) gsap.to(items, { opacity:1, y:0, duration:.8, ease:'power3.out', stagger:0.12 });
+        else items.forEach(el=>{ el.style.opacity = 1; el.style.transform = 'none'; });
+        revealIO.unobserve(entry.target);
+      });
+    }, { threshold:0.1, rootMargin:'0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal-group]').forEach(group=>{
+      if(group.querySelectorAll('[data-reveal-item]').length) revealIO.observe(group);
+    });
+  } else {
     document.querySelectorAll('[data-reveal-item]').forEach(el=>{ el.style.opacity = 1; el.style.transform = 'none'; });
   }
 
-  /* ---------- Custom cursor (pointer:fine only) ---------- */
-  if(window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    const dot = document.createElement('div'); dot.className = 'cursor-dot';
-    const ring = document.createElement('div'); ring.className = 'cursor-ring';
-    document.body.append(dot, ring);
-    document.documentElement.classList.add('has-custom-cursor');
-    let mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my;
-    window.addEventListener('mousemove', (e)=>{ mx=e.clientX; my=e.clientY; dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`; });
-    (function loop(){ rx += (mx-rx)*0.16; ry += (my-ry)*0.16; ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
-    document.addEventListener('mouseover', (e)=>{ if(e.target.closest('a, button, [data-tilt], input, textarea, select')) ring.classList.add('is-active'); });
-    document.addEventListener('mouseout', (e)=>{ if(e.target.closest('a, button, [data-tilt], input, textarea, select')) ring.classList.remove('is-active'); });
-  }
+  /* ---------- Generic chip/segmented selectors (size, delivery slot pickers) ---------- */
+  document.querySelectorAll('[data-chip-group]').forEach(group=>{
+    const chips = group.querySelectorAll('[data-chip]');
+    const activeCls = ['border-primary-600','bg-primary-50','text-primary-700','dark:bg-primary-950'];
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>{ c.classList.remove(...activeCls); c.classList.add('border-subtle'); });
+        chip.classList.remove('border-subtle');
+        chip.classList.add(...activeCls);
+      });
+    });
+  });
+
+  /* ---------- Quantity stepper ---------- */
+  document.querySelectorAll('[data-qty]').forEach(wrap=>{
+    const valueEl = wrap.querySelector('[data-qty-value]');
+    if(!valueEl) return;
+    let qty = parseInt(valueEl.textContent, 10) || 1;
+    const dec = wrap.querySelector('[data-qty-decrease]'), inc = wrap.querySelector('[data-qty-increase]');
+    dec && dec.addEventListener('click', ()=>{ qty = Math.max(1, qty-1); valueEl.textContent = qty; });
+    inc && inc.addEventListener('click', ()=>{ qty += 1; valueEl.textContent = qty; });
+  });
 
   /* ---------- Back to top ---------- */
   const toTop = document.getElementById('back-to-top');

@@ -10,444 +10,374 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/js/tailwind-config.js"></script>
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body data-page="home" class="bg-white dark:bg-ink-950 text-ink antialiased selection:bg-primary-500">
-<div id="preloader"><div class="preloader-petal"></div></div>
+<body data-page="home" class="bg-cream-200 dark:bg-ink-950 text-ink antialiased selection:bg-primary-700">
+<div id="preloader"><div class="preloader-ring"><img src="assets/images/logo-icon.svg" alt="" class="preloader-logo" /></div></div>
 <div id="scroll-progress"></div>
-<div id="page-transition"></div>
 <div id="site-header"></div>
 
 <main id="main-content">
 
-  <!-- HERO -->
-  <section class="bg-mesh noise-overlay relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-    <img src="assets/images/pattern-dots.svg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full text-primary-500/20" />
-    <div class="absolute -left-16 top-24 h-64 w-64 rounded-full bg-accent-200/40 blob-shape dark:bg-accent-900/20"></div>
-    <div class="absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-secondary-200/40 blob-shape dark:bg-secondary-900/20"></div>
-
-    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div data-reveal-group>
-        <span data-reveal-item class="eyebrow-dot inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-xs font-semibold text-primary-700 dark:border-primary-900 dark:bg-primary-950 dark:text-primary-300">
-          <i class="ri-map-pin-time-line"></i> Live-tracked delivery in 90+ cities
-        </span>
-        <h1 class="font-display mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl" data-split-text>
-          Send flowers &amp; gifts that arrive <span class="text-gradient">right on time.</span>
-        </h1>
-        <p class="mt-3 h-8 text-lg font-medium text-primary-600" data-typed='["For birthdays 🎂","For anniversaries 💍","For \"just because\" 🌸","For sorry & thank you 🙏"]'></p>
-        <p data-reveal-item class="mt-4 max-w-lg text-ink-soft">
-          Hand-tied bouquets, curated hampers, and celebration cakes — ordered in a minute, tracked live on the map, and remembered forever. Reorder your favorites in one tap.
-        </p>
-
-        <form data-reveal-item class="mt-8 flex max-w-md flex-col gap-3 sm:flex-row" onsubmit="return false">
-          <label for="hero-pincode" class="sr-only">Delivery pincode</label>
-          <div class="relative flex-1">
-            <i class="ri-map-pin-2-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i>
-            <input id="hero-pincode" type="text" placeholder="Enter delivery pincode" class="input-field w-full rounded-full py-3.5 pl-11 pr-4 text-sm" />
-          </div>
-          <button class="magnetic inline-flex items-center justify-center gap-1.5 rounded-full bg-petal-gradient px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:brightness-110 transition">
-            Check &amp; Order <i class="ri-arrow-right-line"></i>
-          </button>
-        </form>
-
-        <div data-reveal-item class="mt-10 grid grid-cols-3 gap-6 border-t border-subtle pt-8">
-          <div><p class="font-display text-3xl font-semibold"><span data-countup="250" data-suffix="k+">0</span></p><p class="text-xs text-ink-soft">Happy deliveries</p></div>
-          <div><p class="font-display text-3xl font-semibold"><span data-countup="98" data-suffix="%">0</span></p><p class="text-xs text-ink-soft">On-time rate</p></div>
-          <div><p class="font-display text-3xl font-semibold"><span data-countup="4.9" data-decimals="1" data-suffix="/5">0</span></p><p class="text-xs text-ink-soft">Average rating</p></div>
-        </div>
-      </div>
-
-      <div class="hero-3d relative" data-3d-hero data-aos="zoom-in" data-aos-delay="100">
-        <div class="relative mx-auto aspect-square max-w-md">
-          <div class="absolute inset-8 rounded-full bg-petal-gradient/20 blur-3xl" data-depth="0.4"></div>
-          <div class="hero-3d-layer photo-frame relative h-full w-full overflow-hidden rounded-4xl" data-depth="0.6">
-            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=700&q=75&auto=format&fit=crop" alt="Hand-tied rose bouquet held in cupped hands" loading="lazy" width="700" height="760" class="hero-3d-photo h-full w-full rounded-4xl object-cover" />
-          </div>
-          <img src="assets/images/pattern-petals.svg" alt="" aria-hidden="true" data-depth="1.1" class="hero-3d-layer pointer-events-none absolute -right-10 -top-8 h-28 w-28 text-primary-400 opacity-70" />
-        </div>
-        <div class="hero-3d-layer glass-card absolute -left-4 top-6 flex items-center gap-3 rounded-2xl p-3 shadow-soft animate-float-slow sm:-left-10" data-depth="1.6">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-secondary-500 text-white pulse-dot"><i class="ri-e-bike-2-line"></i></span>
-          <div><p class="text-xs font-semibold">Rider arriving</p><p class="text-xs text-ink-soft">6 mins away</p></div>
-        </div>
-        <div class="hero-3d-layer glass-card absolute -right-4 bottom-10 flex items-center gap-3 rounded-2xl p-3 shadow-soft animate-float sm:-right-10" data-depth="1.3">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-accent-500 text-white"><i class="ri-star-smile-line"></i></span>
-          <div><p class="text-xs font-semibold">4.9/5 rating</p><p class="text-xs text-ink-soft">12k+ reviews</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BRAND MARQUEE -->
-  <section class="border-y border-subtle py-6 marquee-pause overflow-hidden">
-    <div class="marquee-track gap-16 text-ink-soft">
-      <span class="flex items-center gap-16 pr-16 text-sm font-semibold uppercase tracking-widest">
-        <span>Featured in Vogue</span><span>·</span><span>Bengaluru's Best 2025</span><span>·</span><span>Trusted by 4,000+ florists</span><span>·</span><span>Same-Day Guarantee</span><span>·</span><span>Eco-Friendly Packaging</span><span>·</span>
-      </span>
-      <span class="flex items-center gap-16 pr-16 text-sm font-semibold uppercase tracking-widest" aria-hidden="true">
-        <span>Featured in Vogue</span><span>·</span><span>Bengaluru's Best 2025</span><span>·</span><span>Trusted by 4,000+ florists</span><span>·</span><span>Same-Day Guarantee</span><span>·</span><span>Eco-Friendly Packaging</span><span>·</span>
-      </span>
-    </div>
-  </section>
-
-  <!-- CATEGORIES -->
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-xl text-center" data-aos="fade-up">
-      <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Shop by category</span>
-      <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Every occasion, one tap away</h2>
-    </div>
-    <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up">
-        <div class="h-24 overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=300&q=70&auto=format&fit=crop" alt="Roses" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Roses</p>
-      </a>
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="50">
-        <div class="h-24 overflow-hidden"><img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?w=300&q=70&auto=format&fit=crop" alt="Tulips" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Tulips</p>
-      </a>
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="100">
-        <div class="h-24 overflow-hidden"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=300&q=70&auto=format&fit=crop" alt="Gift boxes" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Gift Boxes</p>
-      </a>
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="150">
-        <div class="h-24 overflow-hidden"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=300&q=70&auto=format&fit=crop" alt="Cakes" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Cakes</p>
-      </a>
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="200">
-        <div class="h-24 overflow-hidden"><img src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=300&q=70&auto=format&fit=crop" alt="Plants" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Plants</p>
-      </a>
-      <a href="service-details.html" data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle text-center transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="250">
-        <div class="flex h-24 items-center justify-center overflow-hidden bg-accent-50 dark:bg-accent-950"><img src="assets/images/teddy-gift.svg" alt="Soft toys" loading="lazy" class="h-16 w-16 object-contain transition duration-500 group-hover:scale-110" /></div>
-        <p class="py-3 text-sm font-semibold">Soft Toys</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- FEATURED BOUQUETS -->
-  <section class="bg-primary-50/60 py-20 dark:bg-white/[0.03]">
+  <!-- HERO — asymmetric editorial split -->
+  <section class="relative overflow-hidden pt-32 pb-20 sm:pt-44 sm:pb-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-end justify-between gap-4" data-aos="fade-up">
+      <div class="grid gap-10 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-7" data-reveal-group>
+          <p data-reveal-item class="eyebrow">Same-day delivery &middot; 90+ cities</p>
+          <h1 class="font-display mt-5 text-5xl leading-[0.98] sm:text-7xl lg:text-[5.5rem]" data-split-text>
+            Flowers, <span class="font-display-italic text-primary-700 dark:text-primary-300">delivered</span><br />with a story.
+          </h1>
+          <p class="mt-3 h-7 text-lg font-medium text-secondary-600 dark:text-secondary-300" data-typed='["For birthdays 🎂","For anniversaries 💍","For \"just because\" 🌸","For sorry & thank you 🙏"]'></p>
+          <p data-reveal-item class="drop-cap mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">Hand-tied bouquets, curated hampers, and celebration cakes — ordered in a minute, tracked live on the map, and remembered forever.</p>
+
+          <form data-reveal-item class="mt-8 flex max-w-md items-stretch border-b-2 border-ink-900" onsubmit="return false">
+            <label for="hero-pincode" class="sr-only">Delivery pincode</label>
+            <input id="hero-pincode" type="text" placeholder="Enter your delivery pincode" class="w-full bg-transparent py-3 text-base placeholder-ink-soft/60 focus:outline-none" />
+            <button class="magnetic flex shrink-0 items-center gap-1.5 py-3 text-sm font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300">
+              Check <i class="ri-arrow-right-line"></i>
+            </button>
+          </form>
+
+          <div data-reveal-item class="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
+            <div><p class="font-display text-4xl"><span data-countup="250" data-suffix="k+">0</span></p><p class="text-xs uppercase tracking-wide text-ink-soft">Happy deliveries</p></div>
+            <div class="rule-v h-10"></div>
+            <div><p class="font-display text-4xl"><span data-countup="98" data-suffix="%">0</span></p><p class="text-xs uppercase tracking-wide text-ink-soft">On-time rate</p></div>
+            <div class="rule-v h-10"></div>
+            <div><p class="font-display text-4xl"><span data-countup="4.9" data-decimals="1">0</span></p><p class="text-xs uppercase tracking-wide text-ink-soft">Average rating</p></div>
+          </div>
+        </div>
+
+        <div class="hero-3d relative lg:col-span-5" data-3d-hero data-aos="fade-left">
+          <div class="hero-3d-layer photo-frame relative aspect-[4/5] overflow-hidden" data-depth="0.5">
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=800&q=78&auto=format&fit=crop" alt="Hand-tied rose bouquet held in cupped hands" loading="lazy" width="800" height="1000" class="hero-3d-photo h-full w-full object-cover" />
+          </div>
+          <div class="hero-3d-layer absolute -bottom-6 left-4 max-w-[220px] border border-subtle bg-cream-100 p-4 dark:bg-ink-900 lg:-left-10" data-depth="1.4">
+            <p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-ink-soft"><span class="h-2 w-2 rounded-full bg-secondary-600 pulse-dot"></span>Rider en route</p>
+            <p class="font-display mt-1 text-2xl">6 min away</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE — thin editorial ticker -->
+  <section class="rule border-b border-subtle py-5 marquee-pause overflow-hidden">
+    <div class="marquee-track gap-14 text-ink-soft">
+      <span class="flex items-center gap-14 pr-14 text-xs font-semibold uppercase tracking-[0.2em]">
+        <span>Featured in Vogue</span><span>&middot;</span><span>Bengaluru's Best 2025</span><span>&middot;</span><span>Trusted by 4,000+ florists</span><span>&middot;</span><span>Same-Day Guarantee</span><span>&middot;</span><span>Eco-Friendly Packaging</span><span>&middot;</span>
+      </span>
+      <span class="flex items-center gap-14 pr-14 text-xs font-semibold uppercase tracking-[0.2em]" aria-hidden="true">
+        <span>Featured in Vogue</span><span>&middot;</span><span>Bengaluru's Best 2025</span><span>&middot;</span><span>Trusted by 4,000+ florists</span><span>&middot;</span><span>Same-Day Guarantee</span><span>&middot;</span><span>Eco-Friendly Packaging</span><span>&middot;</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- CATEGORIES — horizontal lookbook rail -->
+  <section class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4" data-aos="fade-up">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Best sellers</span>
-          <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Loved this week</h2>
+          <p class="eyebrow">Shop by category</p>
+          <h2 class="font-display mt-3 text-4xl sm:text-5xl">Every occasion,<br class="hidden sm:block" /> one tap away.</h2>
         </div>
-        <a href="services.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:gap-2.5 transition-all">Browse all bundles <i class="ri-arrow-right-line"></i></a>
+        <p class="hidden max-w-xs text-sm text-ink-soft md:block">Drag to browse — six curated collections, restocked daily by our florist partners.</p>
+      </div>
+    </div>
+    <div class="scroll-rail no-scrollbar mt-12 gap-5 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <a href="service-details.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=460&q=72&auto=format&fit=crop" alt="Roses" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">01 <span>Roses</span></p>
+      </a>
+      <a href="seasonal-bunches.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?w=460&q=72&auto=format&fit=crop" alt="Tulips" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">02 <span>Tulips</span></p>
+      </a>
+      <a href="premium-hampers.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=460&q=72&auto=format&fit=crop" alt="Gift boxes" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">03 <span>Gift Boxes</span></p>
+      </a>
+      <a href="celebration-cakes.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=460&q=72&auto=format&fit=crop" alt="Cakes" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">04 <span>Cakes</span></p>
+      </a>
+      <a href="plants-succulents.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=460&q=72&auto=format&fit=crop" alt="Plants" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">05 <span>Plants</span></p>
+      </a>
+      <a href="plushie-combos.html" class="group relative w-[62vw] shrink-0 overflow-hidden sm:w-[34vw] lg:w-[19vw]">
+        <div class="flex aspect-[3/4] items-center justify-center overflow-hidden bg-accent-100 dark:bg-accent-900/20"><img src="assets/images/teddy-gift.svg" alt="Soft toys" loading="lazy" class="h-28 w-28 object-contain transition duration-700 group-hover:scale-105" /></div>
+        <p class="mt-3 flex items-baseline gap-2 font-display text-xl">06 <span>Soft Toys</span></p>
+      </a>
+    </div>
+  </section>
+
+  <!-- BESTSELLERS — magazine list, not cards -->
+  <section class="rule border-t border-subtle py-20 sm:py-24">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4" data-aos="fade-up">
+        <div><p class="eyebrow">Best sellers</p><h2 class="font-display mt-3 text-4xl sm:text-5xl">Loved this week</h2></div>
+        <a href="services.html" class="underline-draw hidden text-sm font-semibold sm:inline-flex items-center gap-1.5">Browse all <i class="ri-arrow-right-line"></i></a>
       </div>
 
-      <div class="swiper mt-10" data-swiper='{"slidesPerView":1.15,"spaceBetween":20,"breakpoints":{"640":{"slidesPerView":2.2},"1024":{"slidesPerView":4}}}'>
-        <div class="swiper-wrapper pb-2">
-          <div class="swiper-slide">
-            <div data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle surface p-5 transition hover:shadow-soft dark:hover:shadow-soft-dark">
-              <div class="relative h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500&q=72&auto=format&fit=crop" alt="Ruby Rose Bouquet" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><span class="absolute left-3 top-3 rounded-full bg-primary-600 px-2.5 py-1 text-[11px] font-semibold text-white">Bestseller</span></div>
-              <h3 class="mt-4 font-semibold">Ruby Rose Bouquet</h3>
-              <p class="text-xs text-ink-soft">24 red roses, eucalyptus &amp; kraft wrap</p>
-              <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹1,299</span><button class="magnetic grid h-9 w-9 place-items-center rounded-full bg-petal-gradient text-white"><i class="ri-add-line"></i></button></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle surface p-5 transition hover:shadow-soft dark:hover:shadow-soft-dark">
-              <div class="relative h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=500&q=72&auto=format&fit=crop" alt="Sunshine Sunflower Bunch" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-              <h3 class="mt-4 font-semibold">Sunshine Bunch</h3>
-              <p class="text-xs text-ink-soft">6 sunflowers with fern &amp; twine</p>
-              <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹899</span><button class="magnetic grid h-9 w-9 place-items-center rounded-full bg-petal-gradient text-white"><i class="ri-add-line"></i></button></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle surface p-5 transition hover:shadow-soft dark:hover:shadow-soft-dark">
-              <div class="relative h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=500&q=72&auto=format&fit=crop" alt="Emerald Gift Hamper" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><span class="absolute left-3 top-3 rounded-full bg-secondary-600 px-2.5 py-1 text-[11px] font-semibold text-white">New</span></div>
-              <h3 class="mt-4 font-semibold">Emerald Gift Hamper</h3>
-              <p class="text-xs text-ink-soft">Chocolates, candle &amp; blooms</p>
-              <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹2,199</span><button class="magnetic grid h-9 w-9 place-items-center rounded-full bg-petal-gradient text-white"><i class="ri-add-line"></i></button></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle surface p-5 transition hover:shadow-soft dark:hover:shadow-soft-dark">
-              <div class="relative flex h-44 items-center justify-center rounded-2xl bg-primary-100/70 dark:bg-primary-900/20"><img src="assets/images/bouquet-orchid.svg" alt="Midnight Orchid" loading="lazy" class="h-32 w-32 object-contain transition group-hover:scale-110" /></div>
-              <h3 class="mt-4 font-semibold">Midnight Orchid</h3>
-              <p class="text-xs text-ink-soft">Premium orchid stems in glass vase</p>
-              <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹1,799</span><button class="magnetic grid h-9 w-9 place-items-center rounded-full bg-petal-gradient text-white"><i class="ri-add-line"></i></button></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div data-tilt class="tilt-card group overflow-hidden rounded-3xl border border-subtle surface p-5 transition hover:shadow-soft dark:hover:shadow-soft-dark">
-              <div class="relative h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=500&q=72&auto=format&fit=crop" alt="Velvet Celebration Cake" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-              <h3 class="mt-4 font-semibold">Velvet Celebration Cake</h3>
-              <p class="text-xs text-ink-soft">500g eggless red velvet</p>
-              <div class="mt-3 flex items-center justify-between"><span class="font-display text-lg font-semibold">₹649</span><button class="magnetic grid h-9 w-9 place-items-center rounded-full bg-petal-gradient text-white"><i class="ri-add-line"></i></button></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination mt-6 !static"></div>
+      <div class="mt-10">
+        <a href="service-details.html" class="group flex items-center gap-6 border-t border-subtle py-6 transition hover:pl-2" data-aos="fade-up">
+          <span class="num-marker hidden w-16 shrink-0 sm:block">01</span>
+          <span class="h-20 w-20 shrink-0 overflow-hidden sm:h-24 sm:w-24"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=200&q=72&auto=format&fit=crop" alt="Ruby Rose Bouquet" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-display text-2xl">Ruby Rose Bouquet</span>
+            <span class="mt-1 block text-sm text-ink-soft">24 red roses, eucalyptus &amp; kraft wrap</span>
+          </span>
+          <span class="hidden shrink-0 rounded-full bg-primary-50 px-3 py-1 text-[11px] font-semibold text-primary-700 dark:bg-primary-950 sm:inline-block">Bestseller</span>
+          <span class="font-display shrink-0 text-2xl">₹1,299</span>
+          <i class="ri-arrow-right-up-line shrink-0 text-xl text-ink-soft transition group-hover:text-primary-700"></i>
+        </a>
+        <a href="seasonal-bunches.html" class="group flex items-center gap-6 border-t border-subtle py-6 transition hover:pl-2" data-aos="fade-up" data-aos-delay="60">
+          <span class="num-marker hidden w-16 shrink-0 sm:block">02</span>
+          <span class="h-20 w-20 shrink-0 overflow-hidden sm:h-24 sm:w-24"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=200&q=72&auto=format&fit=crop" alt="Sunshine Sunflower Bunch" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-display text-2xl">Sunshine Bunch</span>
+            <span class="mt-1 block text-sm text-ink-soft">6 sunflowers with fern &amp; twine</span>
+          </span>
+          <span class="font-display shrink-0 text-2xl">₹899</span>
+          <i class="ri-arrow-right-up-line shrink-0 text-xl text-ink-soft transition group-hover:text-primary-700"></i>
+        </a>
+        <a href="premium-hampers.html" class="group flex items-center gap-6 border-t border-subtle py-6 transition hover:pl-2" data-aos="fade-up" data-aos-delay="120">
+          <span class="num-marker hidden w-16 shrink-0 sm:block">03</span>
+          <span class="h-20 w-20 shrink-0 overflow-hidden sm:h-24 sm:w-24"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=200&q=72&auto=format&fit=crop" alt="Emerald Gift Hamper" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-display text-2xl">Emerald Gift Hamper</span>
+            <span class="mt-1 block text-sm text-ink-soft">Chocolates, candle &amp; blooms</span>
+          </span>
+          <span class="hidden shrink-0 rounded-full bg-secondary-50 px-3 py-1 text-[11px] font-semibold text-secondary-700 dark:bg-secondary-950 sm:inline-block">New</span>
+          <span class="font-display shrink-0 text-2xl">₹2,199</span>
+          <i class="ri-arrow-right-up-line shrink-0 text-xl text-ink-soft transition group-hover:text-primary-700"></i>
+        </a>
+        <a href="premium-orchids.html" class="group flex items-center gap-6 border-t border-b border-subtle py-6 transition hover:pl-2" data-aos="fade-up" data-aos-delay="180">
+          <span class="num-marker hidden w-16 shrink-0 sm:block">04</span>
+          <span class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden bg-ink-900 sm:h-24 sm:w-24"><img src="assets/images/bouquet-orchid.svg" alt="Midnight Orchid" loading="lazy" class="h-14 w-14 object-contain transition group-hover:scale-110" /></span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-display text-2xl">Midnight Orchid</span>
+            <span class="mt-1 block text-sm text-ink-soft">Premium orchid stems in glass vase</span>
+          </span>
+          <span class="font-display shrink-0 text-2xl">₹1,799</span>
+          <i class="ri-arrow-right-up-line shrink-0 text-xl text-ink-soft transition group-hover:text-primary-700"></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BY THE NUMBERS (bento grid) -->
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-xl text-center" data-aos="fade-up">
-      <span class="text-xs font-bold uppercase tracking-widest text-primary-600">By the numbers</span>
-      <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Trusted at scale, cared for by hand</h2>
+  <!-- HOW IT WORKS — restrained flip cards -->
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 sm:py-24">
+    <div class="max-w-xl" data-aos="fade-up">
+      <p class="eyebrow">Simple process</p>
+      <h2 class="font-display mt-3 text-4xl sm:text-5xl">From cart to doorstep,<br />in three steps.</h2>
     </div>
-    <div data-reveal-group class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:grid-rows-2">
-      <div data-reveal-item data-tilt class="tilt-card bento-card bg-mesh noise-overlay col-span-2 row-span-2 rounded-4xl border border-subtle p-8 text-white">
-        <div class="absolute inset-0 -z-10 rounded-4xl bg-ink-950"></div>
-        <i class="ri-truck-line text-3xl text-accent-400"></i>
-        <p class="mt-6 font-display text-5xl font-semibold"><span data-countup="250" data-suffix="k+">0</span></p>
-        <p class="mt-2 text-sm text-white/70">Bouquets &amp; gifts delivered on time, every time — and counting.</p>
-      </div>
-      <div data-reveal-item data-tilt class="tilt-card bento-card rounded-3xl border border-subtle p-6">
-        <i class="ri-map-pin-2-line text-2xl text-primary-600"></i>
-        <p class="mt-4 font-display text-3xl font-semibold"><span data-countup="90" data-suffix="+">0</span></p>
-        <p class="mt-1 text-xs text-ink-soft">Cities covered</p>
-      </div>
-      <div data-reveal-item data-tilt class="tilt-card bento-card rounded-3xl border border-subtle p-6">
-        <i class="ri-star-smile-line text-2xl text-accent-500"></i>
-        <p class="mt-4 font-display text-3xl font-semibold"><span data-countup="4.9" data-decimals="1" data-suffix="/5">0</span></p>
-        <p class="mt-1 text-xs text-ink-soft">Average rating</p>
-      </div>
-      <div data-reveal-item data-tilt class="tilt-card bento-card rounded-3xl border border-subtle p-6">
-        <i class="ri-flower-line text-2xl text-secondary-600"></i>
-        <p class="mt-4 font-display text-3xl font-semibold"><span data-countup="120" data-suffix="+">0</span></p>
-        <p class="mt-1 text-xs text-ink-soft">Partner florists</p>
-      </div>
-      <div data-reveal-item data-tilt class="tilt-card bento-card rounded-3xl border border-subtle p-6">
-        <i class="ri-timer-flash-line text-2xl text-primary-600"></i>
-        <p class="mt-4 font-display text-3xl font-semibold"><span data-countup="35" data-suffix=" min">0</span></p>
-        <p class="mt-1 text-xs text-ink-soft">Fastest delivery</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-xl text-center" data-aos="fade-up">
-      <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Simple process</span>
-      <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">From cart to doorstep in 3 steps</h2>
-      <p class="mt-2 text-sm text-ink-soft">Hover (or tap) a card to flip it and see what happens behind the scenes.</p>
-    </div>
-    <div class="relative mt-14 grid gap-10 md:grid-cols-3">
-      <svg class="pointer-events-none absolute left-0 top-9 hidden w-full md:block" height="4" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true">
-        <path data-draw-path d="M160 2 H840" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" fill="none" />
-        <defs><linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e64a80"/><stop offset="1" stop-color="#ec9509"/></linearGradient></defs>
-      </svg>
-
-      <div class="flip-card relative h-64 text-center" data-aos="fade-up">
+    <div class="relative mt-14 grid gap-px overflow-hidden border border-subtle sm:grid-cols-3">
+      <div class="flip-card relative h-64 bg-cream-100 dark:bg-ink-900" data-aos="fade-up">
         <div class="flip-card-inner h-full">
-          <div class="flip-card-face flex h-full flex-col items-center justify-center rounded-3xl border border-subtle surface p-6">
-            <div class="mx-auto grid h-[72px] w-[72px] place-items-center rounded-3xl bg-petal-gradient text-2xl text-white shadow-glow"><i class="ri-flower-line"></i></div>
-            <h3 class="mt-5 font-display text-xl font-semibold">1. Pick your bouquet</h3>
-            <p class="mt-2 text-sm text-ink-soft">Browse curated collections by occasion, mood, or budget.</p>
+          <div class="flip-card-face flex h-full flex-col justify-between p-7">
+            <span class="num-marker">01</span>
+            <div><h3 class="font-display text-xl">Pick your bouquet</h3><p class="mt-2 text-sm text-ink-soft">Browse curated collections by occasion, mood, or budget.</p></div>
           </div>
-          <div class="flip-card-face flip-card-back flex h-full flex-col items-center justify-center rounded-3xl bg-petal-gradient p-6 text-white">
-            <i class="ri-magic-line text-3xl"></i>
-            <p class="mt-3 text-sm text-white/85">Our stylists refresh collections weekly, so what you see is always in-season and in-stock.</p>
+          <div class="flip-card-face flip-card-back flex h-full flex-col justify-center bg-primary-700 p-7 text-white">
+            <i class="ri-magic-line text-2xl"></i>
+            <p class="mt-3 text-sm text-white/85">Collections refresh weekly, so what you see is always in-season.</p>
           </div>
         </div>
       </div>
-
-      <div class="flip-card relative h-64 text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="flip-card relative h-64 bg-cream-100 dark:bg-ink-900" data-aos="fade-up" data-aos-delay="80">
         <div class="flip-card-inner h-full">
-          <div class="flip-card-face flex h-full flex-col items-center justify-center rounded-3xl border border-subtle surface p-6">
-            <div class="mx-auto grid h-[72px] w-[72px] place-items-center rounded-3xl bg-secondary-500 text-2xl text-white shadow-glow"><i class="ri-secure-payment-line"></i></div>
-            <h3 class="mt-5 font-display text-xl font-semibold">2. Schedule &amp; pay</h3>
-            <p class="mt-2 text-sm text-ink-soft">Choose a delivery slot and check out securely in seconds.</p>
+          <div class="flip-card-face flex h-full flex-col justify-between p-7">
+            <span class="num-marker">02</span>
+            <div><h3 class="font-display text-xl">Schedule &amp; pay</h3><p class="mt-2 text-sm text-ink-soft">Choose a delivery slot and check out securely in seconds.</p></div>
           </div>
-          <div class="flip-card-face flip-card-back flex h-full flex-col items-center justify-center rounded-3xl bg-secondary-500 p-6 text-white">
-            <i class="ri-shield-check-line text-3xl"></i>
-            <p class="mt-3 text-sm text-white/85">256-bit encrypted checkout with UPI, cards &amp; wallets — no account required to pay.</p>
+          <div class="flip-card-face flip-card-back flex h-full flex-col justify-center bg-secondary-600 p-7 text-white">
+            <i class="ri-shield-check-line text-2xl"></i>
+            <p class="mt-3 text-sm text-white/85">Encrypted checkout with UPI, cards &amp; wallets.</p>
           </div>
         </div>
       </div>
-
-      <div class="flip-card relative h-64 text-center" data-aos="fade-up" data-aos-delay="200">
+      <div class="flip-card relative h-64 bg-cream-100 dark:bg-ink-900" data-aos="fade-up" data-aos-delay="160">
         <div class="flip-card-inner h-full">
-          <div class="flip-card-face flex h-full flex-col items-center justify-center rounded-3xl border border-subtle surface p-6">
-            <div class="mx-auto grid h-[72px] w-[72px] place-items-center rounded-3xl bg-accent-500 text-2xl text-white shadow-glow"><i class="ri-radar-line"></i></div>
-            <h3 class="mt-5 font-display text-xl font-semibold">3. Track it live</h3>
-            <p class="mt-2 text-sm text-ink-soft">Watch your rider on the map until it's handed over with a smile.</p>
+          <div class="flip-card-face flex h-full flex-col justify-between p-7">
+            <span class="num-marker">03</span>
+            <div><h3 class="font-display text-xl">Track it live</h3><p class="mt-2 text-sm text-ink-soft">Watch your rider on the map until it's handed over.</p></div>
           </div>
-          <div class="flip-card-face flip-card-back flex h-full flex-col items-center justify-center rounded-3xl bg-accent-500 p-6 text-white">
-            <i class="ri-camera-3-line text-3xl"></i>
-            <p class="mt-3 text-sm text-white/85">Get a doorstep photo the moment it's delivered — proof your gift landed with a smile.</p>
+          <div class="flip-card-face flip-card-back flex h-full flex-col justify-center bg-accent-600 p-7 text-white">
+            <i class="ri-camera-3-line text-2xl"></i>
+            <p class="mt-3 text-sm text-white/85">Get a doorstep photo the moment it's delivered.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LIVE TRACKING TEASER -->
-  <section class="bg-ink-950 py-20 text-white">
-    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+  <!-- LIVE TRACKING -->
+  <section class="border-y border-subtle bg-ink-950 py-20 text-white sm:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
       <div data-aos="fade-right">
-        <span class="text-xs font-bold uppercase tracking-widest text-accent-400">Real-time tracking</span>
-        <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Know exactly when love arrives</h2>
-        <p class="mt-4 max-w-md text-white/65">Every order comes with a live map link — see your rider move in real time, get door-step photo confirmation, and reorder your go-to gift in one tap from your dashboard.</p>
-        <ul class="mt-6 space-y-3 text-sm">
+        <p class="eyebrow text-accent-400">Real-time tracking</p>
+        <h2 class="font-display mt-3 text-4xl sm:text-5xl">Know exactly<br />when love arrives.</h2>
+        <p class="mt-5 max-w-md text-white/60">Every order comes with a live map link — see your rider move in real time, get doorstep photo confirmation, and reorder your go-to gift in one tap.</p>
+        <ul class="mt-7 space-y-3 text-sm">
           <li class="flex items-center gap-3"><i class="ri-checkbox-circle-fill text-secondary-400"></i> Live rider GPS with ETA countdown</li>
           <li class="flex items-center gap-3"><i class="ri-checkbox-circle-fill text-secondary-400"></i> Delivery photo &amp; recipient confirmation</li>
           <li class="flex items-center gap-3"><i class="ri-checkbox-circle-fill text-secondary-400"></i> One-tap reorder from past orders</li>
         </ul>
-        <a href="dashboard.html" class="magnetic mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink-950">Open live dashboard <i class="ri-arrow-right-line"></i></a>
+        <a href="dashboard.html" class="underline-draw mt-8 inline-flex items-center gap-2 text-lg font-semibold">Open live dashboard <i class="ri-arrow-right-line"></i></a>
       </div>
-      <div class="relative rounded-4xl border border-white/10 bg-white/5 p-4" data-aos="fade-left">
-        <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="h-64 w-full rounded-3xl object-cover text-white/40 sm:h-80" />
-        <div class="glass-card absolute left-8 top-8 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white"><span class="h-2 w-2 rounded-full bg-secondary-400 pulse-dot"></span> Rider en route</div>
-        <div class="absolute bottom-10 right-10 grid h-14 w-14 place-items-center rounded-2xl bg-white shadow-glow"><img src="assets/images/rider-scooter.svg" alt="Delivery rider" class="h-9 w-9 object-contain" /></div>
-        <div class="glass-card absolute bottom-8 left-8 rounded-2xl bg-white/10 px-4 py-3 text-white"><p class="text-xs text-white/60">Arriving in</p><p class="font-display text-xl font-semibold">6 min</p></div>
+      <div class="relative border border-white/15 p-4" data-aos="fade-left">
+        <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="h-72 w-full object-cover text-white/25 sm:h-96" />
+        <div class="absolute left-8 top-8 flex items-center gap-2 border border-white/20 bg-ink-950/80 px-4 py-2 text-xs font-semibold"><span class="h-2 w-2 rounded-full bg-secondary-400 pulse-dot"></span> Rider en route</div>
+        <div class="absolute bottom-8 right-8 grid h-14 w-14 place-items-center bg-white"><img src="assets/images/rider-scooter.svg" alt="Delivery rider" class="h-9 w-9 object-contain" /></div>
+        <div class="absolute bottom-8 left-8 border border-white/20 bg-ink-950/80 px-4 py-3"><p class="text-xs text-white/50">Arriving in</p><p class="font-display text-xl">6 min</p></div>
       </div>
     </div>
   </section>
 
-  <!-- GET THE APP (3D phone mockup) -->
-  <section class="relative overflow-hidden py-20">
-    <img src="assets/images/pattern-dots.svg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full text-primary-500/10" />
-    <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+  <!-- GET THE APP -->
+  <section class="relative overflow-hidden py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
       <div class="order-2 flex justify-center lg:order-1" data-aos="fade-right">
-        <div data-tilt data-tilt-max="10" data-tilt-glare="true" class="tilt-card phone-mockup">
+        <div data-tilt data-tilt-max="10" class="tilt-card phone-mockup">
           <div class="phone-mockup-screen">
-            <div class="flex h-full flex-col bg-gradient-to-b from-primary-50 to-white p-3 dark:from-ink-900 dark:to-ink-950">
+            <div class="flex h-full flex-col bg-cream-200 p-3 dark:bg-ink-900">
               <div class="flex items-center justify-between px-1 pt-2 text-[10px] font-semibold text-ink-soft"><span>9:41</span><span class="flex items-center gap-1"><i class="ri-signal-wifi-line"></i><i class="ri-battery-line"></i></span></div>
-              <div class="mt-3 flex items-center gap-2 rounded-2xl bg-white/80 p-2.5 shadow-soft dark:bg-white/5">
-                <span class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-secondary-500 text-white pulse-dot"><i class="ri-e-bike-2-line text-sm"></i></span>
-                <div class="min-w-0"><p class="truncate text-[11px] font-semibold">Arun is on the way</p><p class="text-[10px] text-ink-soft">ETA 6 min · 1.2 km</p></div>
+              <div class="mt-3 flex items-center gap-2 border border-subtle bg-cream-50 p-2.5 dark:bg-white/5">
+                <span class="grid h-8 w-8 shrink-0 place-items-center bg-secondary-600 text-white pulse-dot"><i class="ri-e-bike-2-line text-sm"></i></span>
+                <div class="min-w-0"><p class="truncate text-[11px] font-semibold">Arun is on the way</p><p class="text-[10px] text-ink-soft">ETA 6 min &middot; 1.2 km</p></div>
               </div>
-              <div class="relative mt-3 flex-1 overflow-hidden rounded-2xl bg-ink-950">
-                <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="h-full w-full object-cover text-white/30" />
-                <span class="absolute bottom-3 right-3 grid h-8 w-8 place-items-center rounded-lg bg-white shadow-glow"><img src="assets/images/rider-scooter.svg" alt="" class="h-5 w-5 object-contain" /></span>
+              <div class="relative mt-3 flex-1 overflow-hidden bg-ink-950">
+                <img src="assets/images/map-lines.svg" alt="" aria-hidden="true" class="h-full w-full object-cover text-white/25" />
+                <span class="absolute bottom-3 right-3 grid h-8 w-8 place-items-center bg-white"><img src="assets/images/rider-scooter.svg" alt="" class="h-5 w-5 object-contain" /></span>
               </div>
-              <div class="mt-3 flex items-center justify-between rounded-2xl bg-white/80 p-2.5 shadow-soft dark:bg-white/5">
-                <div class="flex items-center gap-2"><span class="h-8 w-8 overflow-hidden rounded-lg"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=80&q=60&auto=format&fit=crop" alt="" class="h-full w-full object-cover" /></span><p class="text-[11px] font-semibold">Ruby Rose Bouquet</p></div>
-                <span class="rounded-full bg-secondary-100 px-2 py-0.5 text-[9px] font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">On time</span>
+              <div class="mt-3 flex items-center justify-between border border-subtle bg-cream-50 p-2.5 dark:bg-white/5">
+                <div class="flex items-center gap-2"><span class="h-8 w-8 overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=80&q=60&auto=format&fit=crop" alt="" class="h-full w-full object-cover" /></span><p class="text-[11px] font-semibold">Ruby Rose Bouquet</p></div>
+                <span class="bg-secondary-100 px-2 py-0.5 text-[9px] font-semibold text-secondary-700 dark:bg-secondary-950 dark:text-secondary-300">On time</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="order-1 lg:order-2" data-reveal-group data-aos="fade-left">
-        <span data-reveal-item class="eyebrow-dot text-xs font-bold uppercase tracking-widest text-primary-600">Bloomora app</span>
-        <h2 data-reveal-item class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Every bloom, one tap from your pocket</h2>
-        <p data-reveal-item class="mt-4 max-w-md text-ink-soft">Order, track and reorder without opening a browser. Push notifications the second your rider is dispatched, arrives, and delivers — with a doorstep photo waiting in your gallery.</p>
-        <div data-reveal-item class="mt-6 grid grid-cols-2 gap-4 max-w-sm">
-          <div class="flex items-center gap-2 text-sm"><i class="ri-notification-3-line text-primary-600"></i> Live push alerts</div>
-          <div class="flex items-center gap-2 text-sm"><i class="ri-fingerprint-line text-primary-600"></i> Face/Touch ID login</div>
-          <div class="flex items-center gap-2 text-sm"><i class="ri-refresh-line text-primary-600"></i> 1-tap reorder</div>
-          <div class="flex items-center gap-2 text-sm"><i class="ri-gift-2-line text-primary-600"></i> Gifting reminders</div>
+        <p data-reveal-item class="eyebrow">Bloomora app</p>
+        <h2 data-reveal-item class="font-display mt-3 text-4xl sm:text-5xl">Every bloom, one tap<br />from your pocket.</h2>
+        <p data-reveal-item class="mt-5 max-w-md text-ink-soft">Order, track and reorder without opening a browser — push notifications the second your rider is dispatched, arrives, and delivers.</p>
+        <div data-reveal-item class="mt-7 grid max-w-sm grid-cols-2 gap-4 text-sm">
+          <div class="flex items-center gap-2"><i class="ri-notification-3-line text-primary-700"></i> Live push alerts</div>
+          <div class="flex items-center gap-2"><i class="ri-fingerprint-line text-primary-700"></i> Face/Touch ID login</div>
+          <div class="flex items-center gap-2"><i class="ri-refresh-line text-primary-700"></i> 1-tap reorder</div>
+          <div class="flex items-center gap-2"><i class="ri-gift-2-line text-primary-700"></i> Gifting reminders</div>
         </div>
         <div data-reveal-item class="mt-8 flex flex-wrap gap-3">
-          <a href="#" class="magnetic inline-flex items-center gap-2 rounded-xl bg-ink-950 px-5 py-3 text-white dark:bg-white dark:text-ink-950"><i class="ri-apple-fill text-xl"></i><span class="text-left leading-tight"><span class="block text-[10px] opacity-70">Download on the</span><span class="block text-sm font-semibold">App Store</span></span></a>
-          <a href="#" class="magnetic inline-flex items-center gap-2 rounded-xl bg-ink-950 px-5 py-3 text-white dark:bg-white dark:text-ink-950"><i class="ri-google-play-fill text-xl"></i><span class="text-left leading-tight"><span class="block text-[10px] opacity-70">Get it on</span><span class="block text-sm font-semibold">Google Play</span></span></a>
+          <a href="#" class="magnetic inline-flex items-center gap-2 border border-ink-900 px-5 py-3"><i class="ri-apple-fill text-xl"></i><span class="text-left leading-tight"><span class="block text-[10px] opacity-70">Download on the</span><span class="block text-sm font-semibold">App Store</span></span></a>
+          <a href="#" class="magnetic inline-flex items-center gap-2 border border-ink-900 px-5 py-3"><i class="ri-google-play-fill text-xl"></i><span class="text-left leading-tight"><span class="block text-[10px] opacity-70">Get it on</span><span class="block text-sm font-semibold">Google Play</span></span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OCCASIONS -->
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-xl text-center" data-aos="fade-up">
-      <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Shop by moment</span>
-      <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Gifting made for every story</h2>
-    </div>
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <a href="services.html" data-tilt class="tilt-card group relative min-h-[220px] overflow-hidden rounded-3xl p-6 text-white" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500&q=65&auto=format&fit=crop" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink-950/85 via-ink-950/25 to-transparent"></div>
-        <i class="ri-cake-2-line text-3xl"></i><h3 class="mt-16 font-display text-xl font-semibold">Birthdays</h3><p class="text-xs text-white/80">Balloons, cakes &amp; blooms</p>
-      </a>
-      <a href="services.html" data-tilt class="tilt-card group relative min-h-[220px] overflow-hidden rounded-3xl p-6 text-white" data-aos="fade-up" data-aos-delay="80">
-        <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=500&q=65&auto=format&fit=crop" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-primary-900/85 via-primary-900/30 to-transparent"></div>
-        <i class="ri-heart-3-line text-3xl"></i><h3 class="mt-16 font-display text-xl font-semibold">Anniversaries</h3><p class="text-xs text-white/80">Romantic rose collections</p>
-      </a>
-      <a href="services.html" data-tilt class="tilt-card group relative min-h-[220px] overflow-hidden rounded-3xl p-6 text-white" data-aos="fade-up" data-aos-delay="160">
-        <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=500&q=65&auto=format&fit=crop" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-accent-900/85 via-accent-900/30 to-transparent"></div>
-        <i class="ri-parent-line text-3xl"></i><h3 class="mt-16 font-display text-xl font-semibold">Anytime Love</h3><p class="text-xs text-white/80">Mother's &amp; Father's day picks</p>
-      </a>
-      <a href="services.html" data-tilt class="tilt-card group relative min-h-[220px] overflow-hidden rounded-3xl p-6 text-white" data-aos="fade-up" data-aos-delay="240">
-        <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=500&q=65&auto=format&fit=crop" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-secondary-900/85 via-secondary-900/30 to-transparent"></div>
-        <i class="ri-briefcase-4-line text-3xl"></i><h3 class="mt-16 font-display text-xl font-semibold">Corporate</h3><p class="text-xs text-white/80">Bulk &amp; branded hampers</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="bg-primary-50/60 py-20 dark:bg-white/[0.03]">
+  <!-- OCCASIONS — dark panel, small thumbnails -->
+  <section class="noise-overlay relative overflow-hidden border-y border-subtle bg-primary-700 py-20 text-white sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-xl text-center" data-aos="fade-up">
-        <span class="text-xs font-bold uppercase tracking-widest text-primary-600">Testimonials</span>
-        <h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Stories from happy recipients</h2>
+      <p class="eyebrow text-accent-300" data-aos="fade-up">Shop by moment</p>
+      <h2 class="font-display mt-3 text-4xl sm:text-5xl" data-aos="fade-up">Gifting made for<br />every story.</h2>
+      <div class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
+        <a href="celebration-cakes.html" data-tilt class="tilt-card group flex flex-col items-center gap-4 border border-white/15 p-6 text-center transition hover:border-white/40" data-aos="fade-up">
+          <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/20"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=160&q=68&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="font-display text-xl">Birthdays</span>
+        </a>
+        <a href="service-details.html" data-tilt class="tilt-card group flex flex-col items-center gap-4 border border-white/15 p-6 text-center transition hover:border-white/40" data-aos="fade-up" data-aos-delay="80">
+          <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/20"><img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=160&q=68&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="font-display text-xl">Anniversaries</span>
+        </a>
+        <a href="seasonal-bunches.html" data-tilt class="tilt-card group flex flex-col items-center gap-4 border border-white/15 p-6 text-center transition hover:border-white/40" data-aos="fade-up" data-aos-delay="160">
+          <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/20"><img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=160&q=68&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="font-display text-xl">Anytime Love</span>
+        </a>
+        <a href="corporate-gifting.html" data-tilt class="tilt-card group flex flex-col items-center gap-4 border border-white/15 p-6 text-center transition hover:border-white/40" data-aos="fade-up" data-aos-delay="240">
+          <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/20"><img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=160&q=68&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></span>
+          <span class="font-display text-xl">Corporate</span>
+        </a>
       </div>
-      <div class="swiper mt-12" data-swiper='{"slidesPerView":1,"spaceBetween":24,"breakpoints":{"768":{"slidesPerView":2},"1024":{"slidesPerView":3}}}'>
-        <div class="swiper-wrapper pb-2">
-          <div class="swiper-slide">
-            <div class="glass-card h-full rounded-3xl p-7 shadow-soft dark:shadow-soft-dark">
-              <div class="flex gap-1 text-accent-500">★★★★★</div>
-              <p class="mt-4 text-sm text-ink-soft">"Tracked my mother's bouquet like a food delivery — arrived exactly on her lunch break. She cried happy tears."</p>
-              <div class="mt-5 flex items-center gap-3"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=70&auto=format&fit=crop" alt="Ananya Rao" loading="lazy" class="h-11 w-11 rounded-full object-cover" /><div><p class="text-sm font-semibold">Ananya Rao</p><p class="text-xs text-ink-soft">Bengaluru</p></div></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass-card h-full rounded-3xl p-7 shadow-soft dark:shadow-soft-dark">
-              <div class="flex gap-1 text-accent-500">★★★★★</div>
-              <p class="mt-4 text-sm text-ink-soft">"The reorder feature is genius — our office sends the same hamper to clients every quarter in two clicks."</p>
-              <div class="mt-5 flex items-center gap-3"><img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=100&q=70&auto=format&fit=crop" alt="Karthik Iyer" loading="lazy" class="h-11 w-11 rounded-full object-cover" /><div><p class="text-sm font-semibold">Karthik Iyer</p><p class="text-xs text-ink-soft">Chennai</p></div></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass-card h-full rounded-3xl p-7 shadow-soft dark:shadow-soft-dark">
-              <div class="flex gap-1 text-accent-500">★★★★★</div>
-              <p class="mt-4 text-sm text-ink-soft">"Freshest roses I've ever received — packaging alone felt like a ThemeForest showcase. Ordering again!"</p>
-              <div class="mt-5 flex items-center gap-3"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=70&auto=format&fit=crop" alt="Sara Fernandes" loading="lazy" class="h-11 w-11 rounded-full object-cover" /><div><p class="text-sm font-semibold">Sara Fernandes</p><p class="text-xs text-ink-soft">Mumbai</p></div></div>
-            </div>
-          </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL — single featured quote, not a card grid -->
+  <section class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8 sm:py-24">
+    <p class="eyebrow justify-center" data-aos="fade-up">Testimonials</p>
+    <div data-testimonial-rotator class="relative mt-8 min-h-[180px] sm:min-h-[150px]">
+      <div data-testimonial-slide>
+        <p class="font-display-italic text-3xl leading-snug sm:text-4xl">"Tracked my mother's bouquet like a food delivery — arrived exactly on her lunch break. She cried happy tears."</p>
+        <div class="mt-7 flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=70&auto=format&fit=crop" alt="Ananya Rao" loading="lazy" class="h-11 w-11 rounded-full object-cover" />
+          <p class="text-sm"><span class="font-semibold">Ananya Rao</span> <span class="text-ink-soft">— Bengaluru</span></p>
         </div>
-        <div class="swiper-pagination mt-6 !static"></div>
+      </div>
+      <div data-testimonial-slide class="hidden">
+        <p class="font-display-italic text-3xl leading-snug sm:text-4xl">"The reorder feature is genius — our office sends the same hamper to clients every quarter in two clicks."</p>
+        <div class="mt-7 flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=100&q=70&auto=format&fit=crop" alt="Karthik Iyer" loading="lazy" class="h-11 w-11 rounded-full object-cover" />
+          <p class="text-sm"><span class="font-semibold">Karthik Iyer</span> <span class="text-ink-soft">— Chennai</span></p>
+        </div>
+      </div>
+      <div data-testimonial-slide class="hidden">
+        <p class="font-display-italic text-3xl leading-snug sm:text-4xl">"Freshest roses I've ever received — packaging alone felt like an atelier experience. Ordering again!"</p>
+        <div class="mt-7 flex items-center justify-center gap-3">
+          <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?w=100&q=70&auto=format&fit=crop" alt="Sara Fernandes" loading="lazy" class="h-11 w-11 rounded-full object-cover" />
+          <p class="text-sm"><span class="font-semibold">Sara Fernandes</span> <span class="text-ink-soft">— Mumbai</span></p>
+        </div>
+      </div>
+      <div class="mt-8 flex justify-center gap-2">
+        <button data-testimonial-dot aria-label="Testimonial 1"></button>
+        <button data-testimonial-dot aria-label="Testimonial 2"></button>
+        <button data-testimonial-dot aria-label="Testimonial 3"></button>
       </div>
     </div>
   </section>
 
-  <!-- BLOG PREVIEW -->
-  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap items-end justify-between gap-4" data-aos="fade-up">
-      <div><span class="text-xs font-bold uppercase tracking-widest text-primary-600">From the journal</span><h2 class="font-display mt-2 text-3xl font-semibold sm:text-4xl">Gifting ideas &amp; care guides</h2></div>
-      <a href="blog.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:gap-2.5 transition-all">Visit journal <i class="ri-arrow-right-line"></i></a>
-    </div>
-    <div class="mt-10 grid gap-6 md:grid-cols-3">
-      <a href="blog-details.html" data-tilt class="tilt-card group rounded-3xl border border-subtle overflow-hidden transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up">
-        <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <div class="p-5"><span class="text-xs font-semibold text-primary-600">Care Guide</span><h3 class="mt-2 font-display text-lg font-semibold">7 tips to keep bouquets fresh longer</h3></div>
-      </a>
-      <a href="blog-details.html" data-tilt class="tilt-card group rounded-3xl border border-subtle overflow-hidden transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="100">
-        <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <div class="p-5"><span class="text-xs font-semibold text-primary-600">Gifting</span><h3 class="mt-2 font-display text-lg font-semibold">Best desk plants for new job gifts</h3></div>
-      </a>
-      <a href="blog-details.html" data-tilt class="tilt-card group rounded-3xl border border-subtle overflow-hidden transition hover:shadow-soft dark:hover:shadow-soft-dark" data-aos="fade-up" data-aos-delay="200">
-        <div class="h-44 overflow-hidden"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" /></div>
-        <div class="p-5"><span class="text-xs font-semibold text-primary-600">Trends</span><h3 class="mt-2 font-display text-lg font-semibold">2026's most-loved hamper themes</h3></div>
-      </a>
+  <!-- JOURNAL — magazine list -->
+  <section class="rule border-t border-subtle py-20 sm:py-24">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4" data-aos="fade-up">
+        <div><p class="eyebrow">From the journal</p><h2 class="font-display mt-3 text-4xl sm:text-5xl">Gifting ideas &amp; care guides</h2></div>
+        <a href="blog.html" class="underline-draw hidden text-sm font-semibold sm:inline-flex items-center gap-1.5">Visit journal <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="mt-10 grid gap-8 sm:grid-cols-3">
+        <a href="blog-details.html" class="group" data-aos="fade-up">
+          <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" /></div>
+          <p class="eyebrow mt-4">Care Guide</p><h3 class="font-display mt-2 text-xl leading-snug">7 tips to keep bouquets fresh longer</h3>
+        </a>
+        <a href="blog-details.html" class="group" data-aos="fade-up" data-aos-delay="80">
+          <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" /></div>
+          <p class="eyebrow mt-4">Gifting</p><h3 class="font-display mt-2 text-xl leading-snug">Best desk plants for new job gifts</h3>
+        </a>
+        <a href="blog-details.html" class="group" data-aos="fade-up" data-aos-delay="160">
+          <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" /></div>
+          <p class="eyebrow mt-4">Trends</p><h3 class="font-display mt-2 text-xl leading-snug">2026's most-loved hamper themes</h3>
+        </a>
+      </div>
     </div>
   </section>
 
-  <div data-cta data-title="Ready to make someone's day?" data-sub="Order in under 60 seconds and track your bouquet live, door to door." data-btn="Start Your Order" data-href="services.html"></div>
+  <div data-cta data-title="Ready to make someone's day?" data-sub="Order in under 60 seconds and track your bouquet live, door to door." data-btn="Start your order" data-href="services.html"></div>
 
 </main>
 
 <div id="site-footer"></div>
-<button id="back-to-top" aria-label="Back to top" class="magnetic fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-petal-gradient text-white shadow-glow opacity-0 pointer-events-none transition"><i class="ri-arrow-up-line"></i></button>
+<button id="back-to-top" aria-label="Back to top" class="magnetic fixed bottom-6 right-6 z-40 grid h-11 w-11 place-items-center border border-ink-900 bg-ink-900 text-cream-100 opacity-0 pointer-events-none transition"><i class="ri-arrow-up-line"></i></button>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/dist/index.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>

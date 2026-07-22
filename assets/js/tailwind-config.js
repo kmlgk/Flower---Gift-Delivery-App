@@ -3,37 +3,37 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        primary: { 50:'#fdf2f6',100:'#fce7ef',200:'#fbcfe0',300:'#f8a8c5',400:'#f2739f',500:'#e64a80',600:'#d02a63',700:'#af1d4f',800:'#911b44',900:'#7a1a3d',950:'#450a1f' },
-        secondary: { 50:'#effbf4',100:'#d7f5e2',200:'#b2eaca',300:'#7ed9ab',400:'#46bf87',500:'#22a06c',600:'#158059',700:'#12674a',800:'#12523c',900:'#104433',950:'#07271d' },
-        accent: { 50:'#fefbea',100:'#fdf3c6',200:'#fbe38c',300:'#f8cd4c',400:'#f5b521',500:'#ec9509',600:'#cd7104',700:'#a35108',800:'#863f0e',900:'#71350f',950:'#411a04' },
-        ink: { 50:'#f6f6f8',100:'#ececf1',200:'#d5d5e0',300:'#b1b1c6',400:'#8686a5',500:'#68688a',600:'#535170',600:'#53516f',700:'#44415b',800:'#39374c',900:'#252336',950:'#151420' }
+        /* Editorial Botanical palette — deep forest, burnt terracotta, muted gold, warm ink */
+        primary: { 50:'#eaf0ec',100:'#cfe0d5',200:'#a7c2b2',300:'#7fa490',400:'#588870',500:'#3d7057',600:'#2c5a44',700:'#1f3d2c',800:'#15291e',900:'#0d1a13',950:'#081009' },
+        secondary: { 50:'#fdf1ea',100:'#f9dac5',200:'#f0b78e',300:'#e28f5c',400:'#d0723e',500:'#c4602f',600:'#a44d24',700:'#7d3a1b',800:'#5a2913',900:'#3a1a0c',950:'#21100a' },
+        accent: { 50:'#fbf7ed',100:'#f5eacb',200:'#e9d293',300:'#dab668',400:'#c99a45',500:'#b27f2f',600:'#8f6524',700:'#6b4b1b',800:'#4a3413',900:'#2e200c',950:'#1a1207' },
+        ink: { 50:'#f7f6f3',100:'#ede9e0',200:'#d6d2c6',300:'#b7b1a0',400:'#8c8676',500:'#676254',600:'#4c4840',700:'#363330',800:'#262421',900:'#1a1815',950:'#0f0e0c' },
+        cream: { 50:'#fffdfa',100:'#fbf9f5',200:'#f7f3ec',300:'#efe7d8',400:'#e3d7bf' }
       },
       fontFamily: {
         display: ['"Fraunces"', 'serif'],
-        body: ['"Plus Jakarta Sans"', 'sans-serif']
+        body: ['"Archivo"', 'sans-serif']
       },
-      borderRadius: { '4xl':'2rem', '5xl':'2.5rem' },
+      borderRadius: { '4xl':'1.75rem', '5xl':'2.25rem' },
       boxShadow: {
-        glow: '0 0 40px -10px rgba(230,74,128,0.45)',
-        soft: '0 20px 60px -15px rgba(37,35,54,0.25)',
-        'soft-dark': '0 20px 60px -15px rgba(0,0,0,0.6)'
+        glow: '0 0 42px -12px rgba(44,90,68,0.4)',
+        soft: '0 24px 60px -20px rgba(26,24,21,0.16)',
+        'soft-dark': '0 24px 60px -20px rgba(0,0,0,0.55)'
       },
       backgroundImage: {
-        'petal-gradient': 'linear-gradient(135deg,#e64a80 0%,#ec9509 100%)',
-        'leaf-gradient': 'linear-gradient(135deg,#22a06c 0%,#e64a80 100%)',
-        'dusk-gradient': 'linear-gradient(180deg,#151420 0%,#39374c 100%)'
+        'petal-gradient': 'linear-gradient(135deg,#2c5a44 0%,#c4602f 100%)',
+        'leaf-gradient': 'linear-gradient(135deg,#1f3d2c 0%,#b27f2f 100%)',
+        'dusk-gradient': 'linear-gradient(180deg,#0f0e0c 0%,#262421 100%)'
       },
       animation: {
-        float: 'float 6s ease-in-out infinite',
-        'float-slow': 'float 9s ease-in-out infinite',
-        'spin-slow': 'spin 14s linear infinite',
-        blob: 'blob 12s ease-in-out infinite',
-        marquee: 'marquee 28s linear infinite',
+        float: 'float 7s ease-in-out infinite',
+        'float-slow': 'float 10s ease-in-out infinite',
+        'spin-slow': 'spin 16s linear infinite',
+        marquee: 'marquee 32s linear infinite',
         'pulse-ring': 'pulse-ring 2.4s cubic-bezier(0.4,0,0.6,1) infinite'
       },
       keyframes: {
-        float: { '0%,100%': { transform: 'translateY(0px) rotate(0deg)' }, '50%': { transform: 'translateY(-18px) rotate(3deg)' } },
-        blob: { '0%,100%': { borderRadius: '42% 58% 65% 35% / 45% 45% 55% 55%' }, '50%': { borderRadius: '65% 35% 42% 58% / 55% 62% 38% 45%' } },
+        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-14px)' } },
         marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
         'pulse-ring': { '0%': { transform: 'scale(0.8)', opacity: 0.7 }, '80%,100%': { transform: 'scale(1.8)', opacity: 0 } }
       }

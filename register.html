@@ -10,78 +10,91 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/js/tailwind-config.js"></script>
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body data-page="pages" class="bg-white dark:bg-ink-950 text-ink antialiased selection:bg-primary-500">
-<div id="preloader"><div class="preloader-petal"></div></div>
+<body data-page="pages" class="bg-cream-200 dark:bg-ink-950 text-ink antialiased selection:bg-primary-700">
+<div id="preloader"><div class="preloader-ring"><img src="assets/images/logo-icon.svg" alt="" class="preloader-logo" /></div></div>
 <div id="scroll-progress"></div>
-<div id="page-transition"></div>
 <div id="site-header"></div>
 
 <main id="main-content">
-  <section class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
-    <img src="assets/images/pattern-dots.svg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full text-primary-500/20" />
-    <div class="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+  <section class="pt-24 sm:pt-28">
+    <div class="grid lg:min-h-[calc(100vh-5.5rem)] lg:grid-cols-2">
 
-      <div class="rounded-4xl border border-subtle surface p-8 shadow-soft dark:shadow-soft-dark sm:p-10 lg:order-2" data-aos="fade-left">
-        <a href="index.html" class="flex items-center gap-2.5"><img src="assets/images/logo-icon.svg" class="h-9 w-9" alt="Bloomora logo" /><span class="font-display text-xl font-semibold">Bloomora</span></a>
-        <h1 class="font-display mt-6 text-2xl font-semibold sm:text-3xl">Create your account</h1>
-        <p class="mt-1 text-sm text-ink-soft">Already have one? <a href="login.html" class="font-semibold text-primary-600">Log in</a></p>
+      <!-- Form panel -->
+      <div class="flex items-center justify-center p-6 sm:p-12 lg:order-1">
+        <div class="w-full max-w-md py-8" data-aos="fade-right">
+          <a href="index.html" class="flex items-center gap-2.5 lg:hidden"><img src="assets/images/logo-icon.svg" class="h-9 w-9" alt="Bloomora logo" /><span class="font-display-italic text-xl">Bloomora</span></a>
+          <p class="eyebrow mt-8 lg:mt-0">Get started</p>
+          <h1 class="font-display mt-3 text-3xl sm:text-4xl">Create your account.</h1>
+          <p class="mt-2 text-sm text-ink-soft">Already have one? <a href="login.html" class="underline-draw font-semibold text-primary-700">Log in</a></p>
 
-        <form class="mt-7 space-y-4" novalidate>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div><label for="reg-name" class="text-sm font-medium">Full name</label><div class="relative mt-1.5"><i class="ri-user-3-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input id="reg-name" type="text" required placeholder="Jane Doe" class="input-field w-full rounded-xl py-3 pl-11 pr-4 text-sm" /></div></div>
-            <div><label for="reg-phone" class="text-sm font-medium">Phone number</label><div class="relative mt-1.5"><i class="ri-phone-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input id="reg-phone" type="tel" required placeholder="+91 98450 12345" class="input-field w-full rounded-xl py-3 pl-11 pr-4 text-sm" /></div></div>
-          </div>
-          <div>
-            <label for="reg-email" class="text-sm font-medium">Email address</label>
-            <div class="relative mt-1.5"><i class="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input id="reg-email" type="email" required placeholder="you@example.com" class="input-field w-full rounded-xl py-3 pl-11 pr-4 text-sm" /></div>
-          </div>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="reg-password" class="text-sm font-medium">Password</label>
-              <div class="relative mt-1.5"><i class="ri-lock-2-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input id="reg-password" type="password" required placeholder="••••••••" class="input-field w-full rounded-xl py-3 pl-11 pr-11 text-sm" /><button type="button" data-toggle-password="reg-password" aria-label="Toggle password visibility" class="absolute right-4 top-1/2 -translate-y-1/2 text-ink-soft"><i class="ri-eye-line"></i></button></div>
+          <form class="mt-9 space-y-6" novalidate>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div><label for="reg-name" class="text-sm font-medium">Full name</label><input id="reg-name" type="text" required placeholder="Jane Doe" class="input-field mt-1.5 w-full border-0 border-b-2 border-subtle bg-transparent py-3 text-sm focus:border-primary-700 focus:ring-0" /></div>
+              <div><label for="reg-phone" class="text-sm font-medium">Phone number</label><input id="reg-phone" type="tel" required placeholder="+91 98450 12345" class="input-field mt-1.5 w-full border-0 border-b-2 border-subtle bg-transparent py-3 text-sm focus:border-primary-700 focus:ring-0" /></div>
             </div>
             <div>
-              <label for="reg-confirm" class="text-sm font-medium">Confirm password</label>
-              <div class="relative mt-1.5"><i class="ri-lock-2-line absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft"></i><input id="reg-confirm" type="password" required placeholder="••••••••" class="input-field w-full rounded-xl py-3 pl-11 pr-4 text-sm" /></div>
+              <label for="reg-email" class="text-sm font-medium">Email address</label>
+              <input id="reg-email" type="email" required placeholder="you@example.com" class="input-field mt-1.5 w-full border-0 border-b-2 border-subtle bg-transparent py-3 text-sm focus:border-primary-700 focus:ring-0" />
             </div>
-          </div>
-          <label class="flex items-start gap-2 text-sm text-ink-soft"><input type="checkbox" required class="mt-0.5 accent-primary-600" /> I agree to the <a href="#" class="font-semibold text-primary-600">Terms of Service</a> and <a href="#" class="font-semibold text-primary-600">Privacy Policy</a></label>
-          <button type="submit" class="magnetic flex w-full items-center justify-center gap-2 rounded-full bg-petal-gradient py-3.5 text-sm font-semibold text-white shadow-glow hover:brightness-110 transition">Create Account <i class="ri-arrow-right-line"></i></button>
-        </form>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="reg-password" class="text-sm font-medium">Password</label>
+                <div class="relative"><input id="reg-password" type="password" required placeholder="••••••••" class="input-field mt-1.5 w-full border-0 border-b-2 border-subtle bg-transparent py-3 pr-8 text-sm focus:border-primary-700 focus:ring-0" /><button type="button" data-toggle-password="reg-password" aria-label="Toggle password visibility" class="absolute right-0 top-1/2 -translate-y-1/2 text-ink-soft"><i class="ri-eye-line"></i></button></div>
+              </div>
+              <div>
+                <label for="reg-confirm" class="text-sm font-medium">Confirm password</label>
+                <input id="reg-confirm" type="password" required placeholder="••••••••" class="input-field mt-1.5 w-full border-0 border-b-2 border-subtle bg-transparent py-3 text-sm focus:border-primary-700 focus:ring-0" />
+              </div>
+            </div>
+            <label class="flex items-start gap-2 text-sm text-ink-soft"><input type="checkbox" required class="mt-0.5 accent-primary-700" /> I agree to the <a href="#" class="font-semibold text-primary-700">Terms of Service</a> and <a href="#" class="font-semibold text-primary-700">Privacy Policy</a></label>
+            <button type="submit" class="magnetic flex w-full items-center justify-center gap-2 border border-ink-900 bg-primary-700 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-primary-800">Create account <i class="ri-arrow-right-line"></i></button>
+          </form>
 
-        <div class="mt-6 flex items-center gap-3 text-xs text-ink-soft"><span class="h-px flex-1 border-t border-subtle"></span>or sign up with<span class="h-px flex-1 border-t border-subtle"></span></div>
-        <div class="mt-4 grid grid-cols-2 gap-3">
-          <button class="magnetic flex items-center justify-center gap-2 rounded-xl border border-subtle py-2.5 text-sm font-medium hover:border-primary-400"><i class="ri-google-fill text-primary-600"></i> Google</button>
-          <button class="magnetic flex items-center justify-center gap-2 rounded-xl border border-subtle py-2.5 text-sm font-medium hover:border-primary-400"><i class="ri-apple-fill"></i> Apple</button>
+          <div class="mt-8 flex items-center gap-3 text-xs text-ink-soft"><span class="h-px flex-1 border-t border-subtle"></span>or sign up with<span class="h-px flex-1 border-t border-subtle"></span></div>
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <button class="magnetic flex items-center justify-center gap-2 border border-subtle py-2.5 text-sm font-medium transition hover:border-primary-700"><i class="ri-google-fill text-primary-700"></i> Google</button>
+            <button class="magnetic flex items-center justify-center gap-2 border border-subtle py-2.5 text-sm font-medium transition hover:border-primary-700"><i class="ri-apple-fill"></i> Apple</button>
+          </div>
         </div>
       </div>
 
-      <div class="relative hidden overflow-hidden rounded-4xl bg-leaf-gradient p-10 text-white lg:order-1 lg:block" data-aos="fade-right">
-        <div class="absolute -right-8 -bottom-8 h-32 w-32 rounded-full bg-white/10 blob-shape"></div>
-        <div data-tilt data-tilt-max="6" class="tilt-card photo-frame relative mx-auto h-56 w-56 overflow-hidden rounded-full ring-4 ring-white/20">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=500&q=75&auto=format&fit=crop" alt="Gift boxes with gold ribbon" loading="lazy" class="h-full w-full object-cover animate-float" />
+      <!-- Photo / promo panel -->
+      <div class="noise-overlay relative hidden overflow-hidden bg-secondary-600 text-white lg:order-2 lg:flex lg:flex-col lg:justify-between" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=900&q=70&auto=format&fit=crop" alt="Gift boxes with gold ribbon" loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div class="absolute inset-0 bg-gradient-to-t from-secondary-800/90 via-secondary-700/50 to-secondary-600/70"></div>
+
+        <div class="relative flex justify-end p-10 xl:p-14">
+          <span class="border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm">🎁 ₹100 off your first order</span>
         </div>
-        <h2 class="font-display mt-6 text-2xl font-semibold">Join 250,000+ happy senders</h2>
-        <p class="mt-2 text-sm text-white/80">Get ₹100 off your first order, plus early access to seasonal collections and gifting reminders.</p>
+
+        <div class="relative p-10 xl:p-14">
+          <p class="eyebrow text-accent-200">Join Bloomora</p>
+          <h2 class="font-display mt-4 max-w-md text-4xl leading-tight xl:text-5xl">Join 250,000+ happy senders.</h2>
+          <p class="mt-4 max-w-sm text-white/70">Early access to seasonal collections, gifting reminders, and one-tap reordering of your favorite bundles.</p>
+          <ul class="mt-7 space-y-2.5 border-t border-white/15 pt-6 text-sm">
+            <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-accent-300"></i> Live order tracking, door to door</li>
+            <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-accent-300"></i> Save unlimited favorite bundles</li>
+            <li class="flex items-center gap-2"><i class="ri-checkbox-circle-fill text-accent-300"></i> Exclusive subscriber perks</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
 <div id="site-footer"></div>
-<button id="back-to-top" aria-label="Back to top" class="magnetic fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-petal-gradient text-white shadow-glow opacity-0 pointer-events-none transition"><i class="ri-arrow-up-line"></i></button>
+<button id="back-to-top" aria-label="Back to top" class="magnetic fixed bottom-6 right-6 z-40 grid h-11 w-11 place-items-center border border-ink-900 bg-ink-900 text-cream-100 opacity-0 pointer-events-none transition"><i class="ri-arrow-up-line"></i></button>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
 <script src="assets/js/components.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
